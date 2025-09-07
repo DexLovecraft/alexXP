@@ -68,8 +68,9 @@ function getCookie(name) {
 const startMenu = document.querySelector('.start_menu');
 const windows = document.querySelector('.windows');
 const offScreen = document.querySelector('.off_screen');
-const viewport = document.querySelector('.viewport')
-var bootup_sound = new Audio('https://dexlovecraft.github.io/alexXP/bootup_sound.mp3');
+const viewport = document.querySelector('.viewport');
+const apps = document.querySelector('.app');
+var bootup_sound = new Audio('./alexXP/bootup_sound.mp3');
 bootup_sound.volume = 0.25
 
 if (offScreen.classList.contains('visible')) {

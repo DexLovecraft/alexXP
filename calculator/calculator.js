@@ -3,7 +3,7 @@ const altitude_button = document.getElementById('altitude')
 const speed_button = document.getElementById('speed')
 const mach_button = document.getElementById('mach')
 const QFE_button = document.getElementById('QFE')
-var takeoff_sound = new Audio('..https://dexlovecraft.github.io/alexXP/takeoff_sound.mp3');
+var takeoff_sound = new Audio('./alexXP/takeoff_sound.mp3');
 
 altitude_button.addEventListener('click', function() {
     document.querySelector('.altitude').classList.add('visible');
