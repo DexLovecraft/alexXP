@@ -151,13 +151,13 @@ async function loadApp(url , appname) {
     app.innerHTML = html
     app.style.zIndex = 2;
     document.querySelector(".desktop").appendChild(app);
-    if (!document.querySelector(`link[href="https://dexlovecraft.github.io/alexXP/${appname}/${appname}.css]`) && UrlExists(`https://dexlovecraft.github.io/alexXP/${appname}/${appname}.css`)) {
+    if (!document.querySelector(`link[href="./${appname}/${appname}.css]`) && UrlExists(`./${appname}/${appname}.css`)) {
         const style = document.createElement('link');
         style.rel = 'stylesheet'
         style.href = `/${appname}/${appname}.css`;
         document.querySelector('head').appendChild(style)
     }
-    if (!document.querySelector(`script[src="https://dexlovecraft.github.io/alexXP/${appname}/${appname}.js]`) && UrlExists(`https://dexlovecraft.github.io/alexXP/${appname}/${appname}.js`)){
+    if (!document.querySelector(`script[src="./${appname}/${appname}.js]`) && UrlExists(`./${appname}/${appname}.js`)){
         const script = document.createElement('script');
         script.src = `/${appname}/${appname}.js`;
         document.querySelector(".desktop").appendChild(script);
@@ -168,7 +168,7 @@ async function loadApp(url , appname) {
 document.querySelectorAll('.desktop_icon').forEach(icon => {
     icon.addEventListener('dblclick', async () => {
         if (!document.querySelector(`.app[data-appname=${icon.dataset.appname}]`)) {
-            await loadApp(`https://dexlovecraft.github.io/alexXP/${icon.dataset.appname}/${icon.dataset.appname}.html`, icon.dataset.appname);
+            await loadApp(`./${icon.dataset.appname}/${icon.dataset.appname}.html`, icon.dataset.appname);
                 
         }
         else {
@@ -264,8 +264,8 @@ const footerWindowCreation = () => {
 
     close_button.addEventListener('click', function() {
         if (app_window.classList.contains('visible')) {
-            document.querySelector(`link[href="https://dexlovecraft.github.io/alexXP/${app.dataset.appname}/${app.dataset.appname}.css]`)
-            document.querySelector(`script[src="https://dexlovecraft.github.io/alexXP/${app.dataset.appname}/${app.dataset.appname}.js]`)
+            document.querySelector(`link[href="./${app.dataset.appname}/${app.dataset.appname}.css]`)
+            document.querySelector(`script[src="./${app.dataset.appname}/${app.dataset.appname}.js]`)
             app_window.classList.remove('visible');
             document.querySelector(`.footer_window[data-appname="${app.dataset.appname}"]`).remove();
             onChange()

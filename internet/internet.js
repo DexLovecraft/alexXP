@@ -6,8 +6,8 @@ let historyLengthOld = historyLength - 1
 async function loadSite(url , websiteName, pages) {
   document.querySelector('.internet_function_bar_button-back').removeEventListener('click', goBack)
   let finalUrl = url
-  if (document.querySelector(`link[href*="https://dexlovecraft.github.io/alexXP/internet/website/"]`)){
-      document.querySelector(`link[href*="https://dexlovecraft.github.io/alexXP/internet/website/"]`).remove()
+  if (document.querySelector(`link[href*="./internet/website/"]`)){
+      document.querySelector(`link[href*="./internet/website/"]`).remove()
   }  
   document.querySelector('.internet_content').innerHTML = '';
   if (pages) {
@@ -17,10 +17,10 @@ async function loadSite(url , websiteName, pages) {
   if (!resp.ok) throw new Error('Impossible de charger le site');
   const html = await resp.text();
   document.querySelector('.internet_content').innerHTML = html;
-  if (!document.querySelector(`link[href="https://dexlovecraft.github.io/alexXP/internet/website/${websiteName}/${websiteName}.css"]`)) {
+  if (!document.querySelector(`link[href="./internet/website/${websiteName}/${websiteName}.css"]`)) {
     const style = document.createElement('link');
     style.rel = 'stylesheet'
-    style.href = `https://dexlovecraft.github.io/alexXP/internet/website/${websiteName}/${websiteName}.css`;
+    style.href = `./internet/website/${websiteName}/${websiteName}.css`;
     document.querySelector('head').appendChild(style)
   } 
   
@@ -42,7 +42,7 @@ const loadPages = () => {
   links.forEach(link => {
       link.addEventListener('click', event => {
       event.preventDefault();
-      loadSite(`https://dexlovecraft.github.io/alexXP/internet/website/${link.dataset.link}/${link.dataset.link}.html` , link.dataset.link).catch(err => console.error(err));
+      loadSite(`./internet/website/${link.dataset.link}/${link.dataset.link}.html` , link.dataset.link).catch(err => console.error(err));
     });
   });
   // comportement outside link (menu)
@@ -55,7 +55,7 @@ const loadPages = () => {
 }
 
 const goBack = () => {
-   if (document.querySelector(`link[href*="https://dexlovecraft.github.io/alexXP/internet/website/"]`)) document.querySelector(`link[href*="https://dexlovecraft.github.io/alexXP/internet/website/"]`).remove();
+   if (document.querySelector(`link[href*="./internet/website/"]`)) document.querySelector(`link[href*="./internet/website/"]`).remove();
       
       if (historyLength >= 1) {
 
@@ -70,5 +70,5 @@ const goBack = () => {
       } 
 }
 
-loadSite('https://dexlovecraft.github.io/alexXP/internet/website/home/home.html', 'home')
+loadSite('./internet/website/home/home.html', 'home')
 
