@@ -6,8 +6,8 @@ let historyLengthOld = historyLength - 1
 async function loadSite(url , websiteName, pages) {
   document.querySelector('.internet_function_bar_button-back').removeEventListener('click', goBack)
   let finalUrl = url
-  if (document.querySelector(`link[href*="./internet/website/"]`)){
-      document.querySelector(`link[href*="./internet/website/"]`).remove()
+  if (document.querySelector(`link[href*="/alexXP/internet/website/"]`)){
+      document.querySelector(`link[href*="/alexXP/internet/website/"]`).remove()
   }  
   document.querySelector('.internet_content').innerHTML = '';
   if (pages) {
@@ -17,7 +17,7 @@ async function loadSite(url , websiteName, pages) {
   if (!resp.ok) throw new Error('Impossible de charger le site');
   const html = await resp.text();
   document.querySelector('.internet_content').innerHTML = html;
-  if (!document.querySelector(`link[href="./internet/website/${websiteName}/${websiteName}.css"]`)) {
+  if (!document.querySelector(`link[href="/alexXP/internet/website/${websiteName}/${websiteName}.css"]`)) {
     const style = document.createElement('link');
     style.rel = 'stylesheet'
     style.href = `/internet/website/${websiteName}/${websiteName}.css`;
@@ -55,7 +55,7 @@ const loadPages = () => {
 }
 
 const goBack = () => {
-   if (document.querySelector(`link[href*="./internet/website/"]`)) document.querySelector(`link[href*="./internet/website/"]`).remove();
+   if (document.querySelector(`link[href*="/alexXP/internet/website/"]`)) document.querySelector(`link[href*="/alexXP/internet/website/"]`).remove();
       
       if (historyLength >= 1) {
 
