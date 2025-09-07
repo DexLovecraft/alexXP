@@ -70,5 +70,5 @@ const goBack = () => {
       } 
 }
 
-loadSite('./internet//website/home/home.html', 'home')
+loadSite('./internet/website/home/home.html', 'home')
 
