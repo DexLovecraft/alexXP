@@ -42,7 +42,7 @@ body::before,
 body::after{
   content:"";
   position:absolute;
-  background: url(/alexXP/img/bliss-blur.webp) center center / cover no-repeat fixed;              /* couleur des barres – changez à votre goût */
+  background: url(https://dexlovecraft.github.io/alexXP/img/bliss-blur.webp) center center / cover no-repeat fixed;              /* couleur des barres – changez à votre goût */
   z-index:-1;   
   height: 100%;
    width: 100%; 
@@ -69,11 +69,11 @@ body.blue::after{
   aspect-ratio: 16/9;
   height: 100%;
   display: none;
-  background:url(/alexXP/img/blue_screen.png) center center / cover no-repeat fixed; 
+  background:url(https://dexlovecraft.github.io/alexXP/img/blue_screen.png) center center / cover no-repeat fixed; 
 }
 .off_screen {
   height: 100%;
-  background: url(/alexXP/img/off_screen.jpg) center center / cover no-repeat fixed;
+  background: url(https://dexlovecraft.github.io/alexXP/img/off_screen.jpg) center center / cover no-repeat fixed;
   display: none;
   aspect-ratio: 16/9;
 }
@@ -116,7 +116,7 @@ body.blue::after{
   display: none;
   height: 100%;
 
-  background:url(/alexXP/img/bliss.jpeg) center center / cover no-repeat fixed;
+  background:url(https://dexlovecraft.github.io/alexXP/img/bliss.jpeg) center center / cover no-repeat fixed;
 }
 .app {
     border-top-left-radius: 8px;
