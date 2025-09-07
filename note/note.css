@@ -1,0 +1,30 @@
+.note {
+    display: none;
+    margin: 0;
+    width: 40%;
+    height: 60%;
+    position: absolute; 
+    top: 50px;
+    left: 50%;
+    padding: 3px;
+    z-index: 1;
+    overflow: scroll;
+    background-color: rgb(8, 49, 217);
+}
+
+.main_note {
+    margin-top: 25px;
+    height: calc(100% - 25px);
+    width: 100%;
+    padding: 1%;
+    background-color: #dbe0e2;
+}
+
+.note h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(4px, calc(10px + 0.681vw), 48px);
+}
+.note p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(2px, calc(6px + 0.681vw), 38px);
+}

@@ -1,0 +1,36 @@
+.internet_pages_gallery html,
+.internet_pages_gallery body, 
+.internet_pages_gallery header,
+.internet_pages_gallery footer {
+    
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #F9F7F7;
+}
+.internet_pages_gallery h1 {
+    font-size: 3rem;
+    color: #333333;
+    margin: 20px auto;
+}
+.internet_pages_gallery main {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.internet_pages_gallery section {
+    width: 32%;
+}
+.internet_pages_gallery img {
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    box-shadow: rgba(50, 50, 93, 0.75) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    
+    transform-origin: bottom;
+}

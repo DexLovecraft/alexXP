@@ -1,0 +1,648 @@
+@import "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&family=Shrikhand&display=swap";
+
+/* Animations */
+@keyframes loader__background {
+    0% { transform: scaleY(1); opacity: 1; }
+    25% { opacity: 1; }
+    100% { transform: scaleY(0); opacity: 0; }
+}
+@keyframes loader {
+    0% { content: " 0%"; }
+    1% { content: " 1%"; }
+    2% { content: " 2%"; }
+    5% { content: " 5%"; }
+    6% { content: " 6%"; }
+    7% { content: " 7%"; }
+    8% { content: " 8%"; }
+    14% { content: " 14%"; }
+    15% { content: " 15%"; }
+    16% { content: " 16%"; }
+    19% { content: " 19%"; }
+    20% { content: " 20%"; }
+    21% { content: " 21%"; }
+    22% { content: " 22%"; }
+    23% { content: " 23%"; }
+    24% { content: " 24%"; }
+    25% { content: " 25%"; }
+    32% { content: " 32%"; }
+    33% { content: " 33%"; }
+    34% { content: " 34%"; }
+    35% { content: " 35%"; }
+    36% { content: " 36%"; }
+    37% { content: " 37%"; }
+    38% { content: " 38%"; }
+    45% { content: " 45%"; }
+    46% { content: " 46%"; }
+    47% { content: " 47%"; }
+    48% { content: " 48%"; }
+    49% { content: " 49%"; }
+    50% { content: " 50%"; }
+    51% { content: " 51%"; }
+    52% { content: " 52%"; }
+    53% { content: " 53%"; }
+    54% { content: " 54%"; }
+    55% { content: " 55%"; }
+    56% { content: " 56%"; }
+    57% { content: " 57%"; }
+    58% { content: " 58%"; }
+    68% { content: " 68%"; }
+    69% { content: " 69%"; }
+    70% { content: " 70%"; }
+    71% { content: " 71%"; }
+    72% { content: " 72%"; }
+    73% { content: " 73%"; }
+    74% { content: " 74%"; }
+    75% { content: " 75%"; }
+    80% { content: " 80%"; }
+    81% { content: " 81%"; }
+    82% { content: " 82%"; }
+    83% { content: " 83%"; }
+    84% { content: " 84%"; }
+    93% { content: " 93%"; }
+    94% { content: " 94%"; }
+    95% { content: " 95%"; }
+    96% { content: " 96%"; }
+    97% { content: " 97%"; }
+    98% { content: " 98%"; }
+    99% { content: " 99%"; }
+    100% { content: " 100%"; }
+}
+@keyframes dot {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes heart {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes button-hover {
+    100% { filter: brightness(120%); box-shadow: 0px 10px 15px 0px rgba(0,0,0,.35); }
+}
+@keyframes arrival {
+    0% { transform: translateY(50px); opacity: 0; }
+    85% { transform: translateY(-15px); opacity: 1; }
+    100% { transform: translateY(0); }
+}
+@keyframes push {
+    0% { width: 0px; }
+    45%, 55% { width: 85px; }
+    100% { width: 0; }
+}
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    35% { transform: rotate(720deg); }
+    100% { transform: rotate(720deg); }
+}
+
+/* Base styles */
+.internet_pages_ohmyfood body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    scroll-behavior: smooth;
+    font-family: "roboto", sans-serif;
+}
+.internet_pages_ohmyfood a {
+    text-decoration: none;
+    color: inherit;
+}
+.internet_pages_ohmyfood a:visited {
+    color: inherit;
+}
+@media screen and (min-width: 768px) {
+    .internet_pages_ohmyfood body {
+        font-size: 105%;
+    }
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood body {
+        font-size: 115%;
+    }
+}
+
+/* Titles */
+.internet_pages_ohmyfood .title {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.internet_pages_ohmyfood .title--menu {
+    font-family: "Shrikhand", sans-serif;
+    font-weight: lighter;
+}
+.internet_pages_ohmyfood .title--restau {
+    width: 100%;
+}
+
+/* Buttons */
+.internet_pages_ohmyfood .button {
+    height: 54px;
+    width: 20%;
+    border-radius: 50px;
+    background: linear-gradient(354deg, #9356DC 5%, #FF79DA 100%);
+    text-decoration: none;
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,.18);
+    display: flex;
+}
+.internet_pages_ohmyfood .button:hover {
+    animation: button-hover;
+    animation-duration: 150ms;
+    animation-fill-mode: both;
+}
+.internet_pages_ohmyfood .button__text {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 115%;
+    color: #fff;
+}
+.internet_pages_ohmyfood .button--command {
+    display: flex;
+    justify-content: center;
+    margin: 45px auto 0 auto;
+    max-width: 120px;
+}
+
+/* Header */
+.internet_pages_ohmyfood .header {
+    padding: 4%;
+    box-shadow: 0px 1px 15px 0px rgba(0,0,0,.35);
+    position: relative;
+    z-index: 2;
+}
+.internet_pages_ohmyfood .header__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.internet_pages_ohmyfood .header--menu {
+    display: flex;
+}
+.internet_pages_ohmyfood .header--menu__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin: auto -5px;
+}
+.internet_pages_ohmyfood .header--menu__icon {
+    font-size: 120%;
+}
+
+/* Footer */
+
+.internet_pages_ohmyfood .footer {
+    background: #353535;
+    color: #fff;
+    padding: 10px 30px;
+    height: 240px;
+    position: initial;
+    display: block;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .footer {
+        height: 320px;
+    }
+}
+.internet_pages_ohmyfood .footer__title {
+    font-family: "Shrikhand", sans-serif;
+    font-weight: lighter;
+    font-size:300%;
+}
+.internet_pages_ohmyfood .footer__icon {
+    margin: 0 10px 0 0; 
+}
+
+.internet_pages_ohmyfood .footer__text {
+    margin-top: 1.5rem;
+    font-size: 150%;
+}
+
+/* Loader */
+.internet_pages_ohmyfood .loaderbg {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(354deg, #9356DC 5%, #FF79DA 100%);
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    animation: loader__background 450ms .9s both;
+    transform-origin: 50% 0;
+}
+.internet_pages_ohmyfood .loaderbg::after {
+    content: "0";
+    margin: auto;
+    font-size: 4rem;
+    font-weight: bold;
+    animation: loader .7s ease 1 both;
+    color: #fff;
+    position: absolute;
+}
+.internet_pages_ohmyfood .dot-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160px;
+    width: 160px;
+}
+.internet_pages_ohmyfood .dot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.internet_pages_ohmyfood .dot--top,
+.internet_pages_ohmyfood .dot--bot {
+    height: 50px;
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.internet_pages_ohmyfood .dot--1 { animation: dot 1.2S linear infinite; align-self: flex-end; }
+.internet_pages_ohmyfood .dot--2 { animation: dot 1.2S linear .2s infinite; align-self: flex-start; }
+.internet_pages_ohmyfood .dot--3 { animation: dot 1.2S linear .4s infinite; align-self: flex-end; }
+.internet_pages_ohmyfood .dot--4 { animation: dot 1.2S linear .6s infinite; align-self: flex-start; }
+.internet_pages_ohmyfood .dot--5 { animation: dot 1.2S linear .8s infinite; align-self: flex-end; }
+.internet_pages_ohmyfood .dot--6 { animation: dot 1.2S linear 1s infinite; align-self: flex-start; }
+
+
+/*localisation */
+
+.internet_pages_ohmyfood .localisation{
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: #444;
+    padding: 10px 0;
+}
+.internet_pages_ohmyfood .localisation__text {
+    font-weight: 500;
+}
+
+
+
+
+/* Welcome */
+.internet_pages_ohmyfood .welcome {
+    background: #f6f6f6;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 50px;
+}
+.internet_pages_ohmyfood .subtitle {
+    font-weight: 300;
+    color: #666;
+    margin: 0 0 35px 0;
+}
+
+/* Fonctionement */
+.internet_pages_ohmyfood .fonctionement {
+    padding: 30px;
+}
+.internet_pages_ohmyfood .step {
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,.18);
+    border-radius: 18px/30px;
+    margin-bottom: 25px;
+}
+.internet_pages_ohmyfood .step__number {
+    background: #9356dc;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin: 0;
+    position: relative;
+    right: 2.5%;
+    color: #fff;
+}
+@media screen and (min-width: 768px) {
+    .internet_pages_ohmyfood .step__number { right: 1.5%; }
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .step__number { right: .5%; }
+}
+.internet_pages_ohmyfood .step__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 15px;
+}
+.internet_pages_ohmyfood .step__icon {
+    margin: 0 0 0 10px;
+    color: rgba(0,0,0,.6);
+}
+.internet_pages_ohmyfood .step__icon--purple {
+    color: #9356dc;
+}
+.internet_pages_ohmyfood .step--purple {
+    background: rgba(147,86,220,.2);
+}
+
+/* Restaurants */
+.internet_pages_ohmyfood .restaurants {
+    padding: 30px;
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+    .internet_pages_ohmyfood .restaurants {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+/* Card */
+.internet_pages_ohmyfood .card {
+    border-radius: 25px;
+    background: #fff;
+    height: 230px;
+    display: grid;
+    grid-template-columns: repeat(7, 14%) 2.2%;
+    grid-template-rows: 3% repeat(6, 10.5%) 5% 13.5% 13.5%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding: 0;
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,.18);
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+    .internet_pages_ohmyfood .card { width: 49%; }
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .card { width: 49%; }
+}
+@media screen and (min-width: 1330px) {
+    .internet_pages_ohmyfood .card { width: 24%; height: 400px; }
+}
+.internet_pages_ohmyfood .card__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px 25px 0 0;
+    grid-area: 1/1/8/9;
+    object-fit: cover;
+}
+.internet_pages_ohmyfood .card__new {
+    background: #99e2d0;
+    color: #2c9c81;
+    grid-area: 2/6/3/8;
+    font-size: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 5% 10%;
+    height: 70%;
+}
+@media screen and (min-width: 1330px) {
+    .internet_pages_ohmyfood .card__new { grid-area: 2/5/3/7; }
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .card__new { grid-area: 2/6/3/8; }
+}
+.internet_pages_ohmyfood .card__title {
+    grid-area: 9/1/10/8;
+    margin: 0 10px;
+    height: 25px;
+    padding: 0 0 -10px 0;
+    font-size: 130%;
+    word-wrap: break-word;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .card__title { font-size: 125%; }
+}
+.internet_pages_ohmyfood .card__text {
+    grid-area: 10/1/11/8;
+    margin: 0 10px;
+    font-weight: 300;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .card__text { font-size: 125%; }
+}
+.internet_pages_ohmyfood .hearticon,
+.internet_pages_ohmyfood .hearticon--full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    grid-area: 9/7/10/8;
+    font-size: 1.5em;
+}
+.internet_pages_ohmyfood .hearticon--full {
+    background-clip: text;            
+    -webkit-background-clip: text;    
+    color: transparent; 
+    background: -webkit-linear-gradient(354deg, #9356DC 5%, #FF79DA 100%);
+    -webkit-text-fill-color: rgba(0,0,0,0);
+    transform-origin: 50% 100%;
+    opacity: 0;
+}
+.internet_pages_ohmyfood .hearticon--full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 1.5em;
+    grid-area: 9/7/10/8;
+    background: -webkit-linear-gradient(354deg, #9356DC 5%, #FF79DA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform-origin: 50% 100%;
+    opacity: 0;
+}
+.internet_pages_ohmyfood .hearticon--full:hover {
+    animation-name: heart;
+    animation-duration: 200ms;
+    animation-fill-mode: both;
+}
+
+/* Topmenu */
+.internet_pages_ohmyfood .topmenu {
+    height: 300px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+@media screen and (min-width: 768px) {
+    .internet_pages_ohmyfood .topmenu { height: 500px; }
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .topmenu { height: 600px; }
+}
+.internet_pages_ohmyfood .topmenu--palette {
+    background-image: url("/internet/website/ohmyfood/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+    background-size: cover;
+}
+.internet_pages_ohmyfood .topmenu--note {
+    background-image: url("/internet/website/ohmyfood/img/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+    background-size: cover;
+}
+.internet_pages_ohmyfood .topmenu--francaise {
+    background-image: url("/internet/website/ohmyfood/img/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+    background-size: cover;
+}
+.internet_pages_ohmyfood .topmenu--delice {
+    background-image: url("/internet/website/ohmyfood/img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+    background-size: cover;
+}
+.internet_pages_ohmyfood .topmenu__bottom {
+    grid-area: 7/1/9/10;
+    background: #f6f6f6;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 33%);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border-radius: 25px 25px 0 0;
+}
+.internet_pages_ohmyfood .topmenu__title {
+    grid-area: 2/1/3/8;
+    margin: 0 0 0 20px;
+    font-size: 150%;
+}
+.internet_pages_ohmyfood .topmenu__icon {
+    grid-area: 2/8/3/9;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .topmenu__icon { grid-area: 2/9/3/10; }
+}
+
+/* Main menu */
+.internet_pages_ohmyfood .main--menu {
+    padding: 0 20px 45px 20px;
+    background: #f6f6f6;
+    margin: 0;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .main--menu { margin-top: -5px; }
+}
+.internet_pages_ohmyfood .dishes-category {
+    margin: 0 0 25px 0;
+    font-weight: 300;
+    font-size: 100%;
+}
+.internet_pages_ohmyfood .dishes-category__underline {
+    border-bottom: #99e2d0 3px solid;
+}
+
+/* Card container */
+.internet_pages_ohmyfood .card-container {
+    width: 100%;
+    height: 70px;
+    border-radius: 25px;
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,.18);
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 25px;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .card-container { height: 140px; }
+}
+.internet_pages_ohmyfood .card-container--1 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 0ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--2 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 325ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--3 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 650ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--4 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 975ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--5 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 1300ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--6 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 1625ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--7 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 1950ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--8 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 2275ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--9 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 2600ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container--10 { animation: arrival 325ms cubic-bezier(0.43, 0.16, 0.27, 1) 2925ms 1 both; transform-origin: 0 100%; }
+.internet_pages_ohmyfood .card-container:hover > .block-vert { animation: push 2s; }
+.internet_pages_ohmyfood .card-container:hover > .block-vert > .block-vert__icon { animation: rotate 2s; }
+
+/* Dishes card */
+.internet_pages_ohmyfood .d-card {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .d-card {
+        height: 120px;
+        font-size: 120%;
+        justify-content: space-around;
+    }
+}
+.internet_pages_ohmyfood .d-card__title {
+    margin: 0 10px 0 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 25px;
+    min-width: 0;
+    font-weight: 500;
+    font-size: 100%;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .d-card__title { height: 30px; }
+}
+.internet_pages_ohmyfood .description {
+    display: flex;
+    justify-content: space-between;
+}
+.internet_pages_ohmyfood .description__text {
+    margin: 0 10px 0 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 25px;
+    min-width: 0;
+    font-weight: 300;
+    font-size: 90%;
+}
+@media screen and (min-width: 992px) {
+    .internet_pages_ohmyfood .description__text { height: 30px; }
+}
+.internet_pages_ohmyfood .description__price {
+    margin: 0;
+    font-weight: 700;
+}
+.internet_pages_ohmyfood .block-vert {
+    background: #99e2d0;
+    width: 0px;
+    max-width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin: 0;
+}
+.internet_pages_ohmyfood .block-vert__icon {
+    color: #fff;
+}

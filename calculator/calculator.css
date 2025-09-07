@@ -1,0 +1,144 @@
+.calculator  {
+  margin: 0;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
+  width: 50%;
+  height: 70%;
+  top: 100px;
+  left: 150px;
+  padding: 3px;
+}
+
+
+.calculator.visible{
+  display: grid;
+}
+
+.title_calculator {
+    font-family: helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    writing-mode:vertical-lr;
+    text-orientation: upright;
+    margin :auto 10px;
+    height: 100%;
+    font-size: 1.2rem;;
+    text-shadow: rgb(0, 255, 255) 5px 5px 10px;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width: 33%;
+    justify-content: space-between;
+    margin: 10px 10px 0 0;
+    padding: 5px;
+    background :#E0E0E0;
+    border-width: 7px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(225deg, rgba(130, 205, 224, 1.000) 0.000%, rgba(149, 201, 222, 1.000) 16.667%, rgba(174, 200, 216, 1.000) 33.333%, rgba(202, 201, 208, 1.000) 50.000%, rgba(232, 206, 199, 1.000) 66.667%, rgba(255, 213, 194, 1.000) 83.333%, rgba(255, 221, 192, 1.000) 100.000%);
+}
+ 
+.speed , .altitude, .mach {
+  height: 100%;
+    display: none;
+    width: 90%;;
+    justify-content: center;
+    flex-direction: row;
+    top: 25%;
+    position: relative;
+    margin: auto;
+}
+
+.mach img, .altitude img{
+    position: absolute;
+    height: 26%;
+    bottom: 35%;
+    margin: auto;
+    border: ridge 5px rgba(255, 255, 255, 0.5);
+    
+}
+.QFE_container{
+  height: 100%;
+    width: 90%;
+    top: 35%;
+    position: relative;
+}
+
+.QFE_container{
+    display: none;
+}
+.QFE_container.visible{
+    display: flex;
+    flex-direction: column;
+}
+.speed.visible, .altitude.visible, .mach.visible {
+  display: flex;
+}
+
+.QFE_container h2{
+  width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.QFE{
+    width: 100%;
+    display: flex;
+    align-self: center;
+}
+.QFE p{
+    margin: auto 3px; 
+}
+.label_calculator {
+    font-family: helvetica, Arial, sans-serif;
+    margin: auto;
+    height: 100%;
+    text-wrap: balance;
+    text-align: center;
+}
+
+.main_calculator {
+  background: #E0E9EB;
+  display: flex;
+  margin: auto;
+  margin-top: 25px;
+  height: calc(100% - 25px);
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: 1 / 2 / 6 / 5;
+}
+.main_calculator input{
+    background :#E0E0E0;
+    width: 100%;
+    height: 100%;
+}
+
+.aside_calculator {
+  display: flex;  
+  flex-direction: row;
+  margin-top: 25px;
+  height: calc(100% - 25px);
+  background-color: rgba(255, 221, 192, 1.000);
+  grid-area: 1 / 1 / 6 / 2;
+}
+.nav_calculator {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.nav_link {
+    width: 80%;
+    height: 40px;
+    font-size: 1.2rem;
+    margin:5px auto;
+    font-weight: bold;
+    cursor: pointer;
+}

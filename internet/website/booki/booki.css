@@ -1,0 +1,506 @@
+/*booki */
+
+
+/* ------------------------------------------------------------------
+   GLOBAL ELEMENT SELECTORS
+------------------------------------------------------------------ */
+.internet_pages_booki body{
+  font-size: clamp(-5px, calc(0px + 0.681%), 38px);
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 500;
+  /*Clamp is for the fluidity of all the text of the page*/
+  font-size: clamp(11px, calc(11px + ((1vw - 9.92px) * 0.8291)), 23px);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ------------------------------------------------------------------
+   HEADER SECTION
+------------------------------------------------------------------ */
+.internet_pages_booki header{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ------------------------------------------------------------------
+   LOGO & NAVIGATION
+------------------------------------------------------------------ */
+.internet_pages_booki .logo{
+  margin-left: 6%;
+  margin-top: 2%;
+  height: 5.55%;
+}
+.internet_pages_booki nav{
+  margin: 0 4.54% 0 4.54%;
+  width: 20%;
+}
+.internet_pages_booki ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.internet_pages_booki li{
+  height: 12vh;
+  font-size: 120%;
+  width: 110%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.internet_pages_booki a{
+  color: #000;
+  text-decoration: none;
+}
+.internet_pages_booki .decoration{
+  border-top: #fff 0.4vw solid;
+}
+.internet_pages_booki .decoration:hover{
+  border-top: #0065FC 0.4vw solid;
+}
+.internet_pages_booki .decoration:hover a{
+  color: #0065FC;
+  position: relative;
+}
+
+/* ------------------------------------------------------------------
+   TITRES GÉNÉRAUX
+------------------------------------------------------------------ */
+.internet_pages_booki .title{
+  font-weight: 700;
+  font-size: 170%;
+}
+
+/* ------------------------------------------------------------------
+   ZONE DE RECHERCHE
+------------------------------------------------------------------ */
+.internet_pages_booki .search_zone{
+  margin-top: 5.05%;
+  margin-left: 4%;
+  width: 90%;
+}
+.internet_pages_booki .search_zone p{
+  font-size: 20px;
+  margin-top: -0.5%;
+}
+.internet_pages_booki .search_zone form{
+  margin-top: 2%;
+}
+.internet_pages_booki .search_bar{
+    display: flex;
+    width: 450px;
+    border-radius: 10px;
+    height: 45px;
+}
+.internet_pages_booki .search_bar .marker{
+  height: 45px;
+    width: 55px;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 9px 0 0 9px;
+}
+.internet_pages_booki .search_bar input[type=text]{
+    height: 45px;
+    width: 250px;
+    margin: 0;
+    border-radius: 0;
+    border: solid 1.5px #F2F2F2;
+}
+.internet_pages_booki .search_bar input[type=text]::placeholder{
+  color: #000;
+    font-weight: 700;
+    position: relative;
+    left: 15px;
+    font-size: 13px;
+}
+.internet_pages_booki .search_bar span{
+  font-weight: 700;
+  background-color: #0065FC;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 0 10px 0 10px;
+  z-index: 1;
+  border-radius:0 9px 9px 0;
+}
+
+
+/* ------------------------------------------------------------------
+   FILTRES
+------------------------------------------------------------------ */
+.internet_pages_booki .filter_zone{
+  margin: 1% auto 1% 4%;
+}
+.internet_pages_booki .filter_zone article{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.internet_pages_booki .filter_zone article h3{
+  font-size: 25px;
+}
+.internet_pages_booki .sidefilter{
+  display: flex;
+}
+.internet_pages_booki .filter{
+  display: flex;
+    margin: 10px 15px 0 15px;
+    align-items: center;
+    height: 55px;
+    border-radius: 45px;
+    border: 2px solid #F2F2F2;
+}
+.internet_pages_booki .filter i{
+  height: 55px;
+  width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0065FC;
+  background-color: #DEEBFF;
+  border-radius: 45px;
+  border: 2px #DEEBFF solid;
+  margin-left: -2px;
+  font-size: 20px;
+}
+.internet_pages_booki .filter p{
+    margin: auto 20px auto 10px;
+    font-weight: 700;
+    font-size: 16px;
+}
+.internet_pages_booki .filter:hover{
+  border: 2px solid #0065FC;
+}
+.internet_pages_booki .filter:hover i{
+  color:#DEEBFF;
+  background-color: #0065FC;
+  border: 2px solid #0065FC;
+}
+
+/* Media query for height <= 639px: reduce all sizes */
+@media (max-height: 639px) {
+  .internet_pages_booki .search_zone p {
+    font-size: 16px;
+  }
+  .internet_pages_booki .search_bar {
+    width: 320px;
+    height: 35px;
+  }
+  .internet_pages_booki .search_bar .marker,
+  .internet_pages_booki .search_bar input[type=text] {
+    height: 35px;
+  }
+  .internet_pages_booki .search_bar .marker {
+    width: 40px;
+    font-size: 13px;
+  }
+  .internet_pages_booki .search_bar input[type=text] {
+    width: 160px;
+    font-size: 12px;
+  }
+  .internet_pages_booki .search_bar input[type=text]::placeholder {
+    font-size: 11px;
+    left: 8px;
+  }
+  .internet_pages_booki .search_bar span {
+    font-size: 13px;
+    padding: 0 7px;
+  }
+  .internet_pages_booki .filter_zone article h3 {
+    font-size: 18px;
+  }
+  .internet_pages_booki .filter {
+    height: 38px;
+    border-radius: 30px;
+  }
+  .internet_pages_booki .filter i {
+    height: 38px;
+    width: 38px;
+    font-size: 15px;
+    border-radius: 30px;
+  }
+  .internet_pages_booki .filter p {
+    font-size: 12px;
+    margin: auto 10px auto 7px;
+  }
+}
+/* ------------------------------------------------------------------
+  INFO BAR
+------------------------------------------------------------------ */
+.internet_pages_booki .info{
+  display: flex;
+  align-items: center;
+  margin-top: 1%;
+}
+.internet_pages_booki .info i{
+  border: 1.5px #DEEBFF solid;
+  color: #0065FC;
+  height: 2.52%;
+  width: 1.42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; /* 16:9 ratio */
+  font-size: 19px;
+}
+.internet_pages_booki .info p{
+  margin-left: 1%;
+}
+
+/* ------------------------------------------------------------------
+  CONTENU PRINCIPAL
+------------------------------------------------------------------ */
+.internet_pages_booki .housing_zone{
+  display: flex;
+  align-items: start;
+  height: 75vh;
+  margin: 1% auto 10% auto;
+}
+.internet_pages_booki .house,
+.internet_pages_booki .trending{
+  padding: 2%;
+}
+
+/* ------------------------------------------------------------------
+  HABITATIONS
+------------------------------------------------------------------ */
+.internet_pages_booki .house{
+  padding-top: 2.02%;
+  flex: 2;
+  margin: 2% 2% 0 4%;
+  background-color: #F2F2F2;
+  border-radius: 25px;
+  height: 100%;
+}
+.internet_pages_booki .house h2{
+  margin: 5% 0 5% 0;
+}
+.internet_pages_booki .house p{
+  font-weight: 700;
+}
+.internet_pages_booki .house_top{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  padding: 0;
+  height:30%;
+}
+.internet_pages_booki .house_bottom{
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+  CARTES DE LOGEMENT
+------------------------------------------------------------------ */
+.internet_pages_booki .card{
+  background-color: #fff;
+  width: 30%;
+  height: 110%;
+  border-radius: 25px;
+  box-shadow:0px 5px 20px 0px rgba(0,0,0,0.39);
+}
+.internet_pages_booki .card img{
+  width: 95%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2% auto;
+  border-radius: 24px 24px 0 0;
+  object-fit: cover;
+}
+.internet_pages_booki .card h4{
+  margin: 3% 0 0 10%;
+}
+.internet_pages_booki .card p{
+  margin: 1% 0 0 10%;
+  font-weight: 400;
+}
+.internet_pages_booki .card .star{
+  margin: 1% 0 0 10%;
+  font-size: 85%;
+}
+.internet_pages_booki .card .bold{
+  font-weight: 700;
+}
+.internet_pages_booki .full{
+  color: #0065FC;
+}
+.internet_pages_booki .empty{
+  color: #F2F2F2;
+}
+.internet_pages_booki .more{
+  margin: 6% auto;
+}
+
+/* ------------------------------------------------------------------
+  TENDANCES
+------------------------------------------------------------------ */
+.internet_pages_booki .trending{
+  flex: 1;
+  margin: 2% 4% 0 2%;
+  background-color: #F2F2F2;
+  border-radius: 25px;
+  height: 100%;
+}
+.internet_pages_booki .trending_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.internet_pages_booki .trending_title i{
+  font-size: 170%;
+}
+.internet_pages_booki .card_trend_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85%;
+}
+.internet_pages_booki .card_trend{
+  height: 30%;
+  width: 100%;
+  border-radius: 25px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow:0px 5px 20px 0px rgba(0,0,0,0.39);
+}
+.internet_pages_booki .card_trend img{
+  width: 30%;
+  height: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5% auto 1.5% 1.5%;
+  border-radius: 24px 0 0 24px;
+  object-fit: cover;
+}
+.internet_pages_booki .card_trend_text{
+  margin: 7% 0 7% 2%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.internet_pages_booki .card_trend_text h4{
+  margin: 0 0 0 2% ;
+}
+.internet_pages_booki .card_trend_text p{
+  margin: 0 0 0 2% ;
+}
+.internet_pages_booki .card_trend_text .star{
+  margin: 20% 0 0 2% ;
+}
+
+/* ------------------------------------------------------------------
+  ACTIVITÉS
+------------------------------------------------------------------ */
+.internet_pages_booki .activity_zone{
+  height: 75vh;
+  margin: 3%;
+}
+.internet_pages_booki .activity_zone h2{
+  margin: 1%;
+}
+.internet_pages_booki .activity_zone a{
+  border-radius: 25px;
+}
+.internet_pages_booki .activity{
+  display: flex;
+}
+.internet_pages_booki .card_activity_column{
+  width: 25%;
+  height: 75vh;
+  margin: 1%;
+}
+.internet_pages_booki .card_activity{
+  box-shadow:0px 5px 20px 0px rgba(0,0,0,0.39);
+  border-radius: 25px;
+}
+.internet_pages_booki .card_activity img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+.internet_pages_booki .card_activity h4{
+  background-color: #FFF;
+  border-radius:0 0 25px 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 4%;
+  position: relative;
+}
+.internet_pages_booki .right .left{
+  display: flex;
+  flex-direction: column;
+}
+.internet_pages_booki .card_right_top{
+  height: 58%;
+  margin-bottom: 7%;
+}
+.internet_pages_booki .card_right_bot{
+  height: 38%;
+}
+.internet_pages_booki .card_left_top{
+  height: 51%;
+  margin-bottom: 7%;
+}
+.internet_pages_booki .card_left_bot{
+  height: 45%;
+}
+.internet_pages_booki .card_activity_large h4{
+  height: 10%;
+  bottom: 10%;
+}
+.internet_pages_booki .card_right_top h4{
+  height: 17.5%;
+  bottom: 17.5%;
+}
+.internet_pages_booki .card_right_bot h4{
+  height: 27%;
+  bottom: 27%;
+}
+.internet_pages_booki .card_left_top h4{
+  height: 20%;
+  bottom: 20%;
+}
+.internet_pages_booki .card_left_bot h4{
+  height: 22%;
+  bottom: 22%;
+}
+
+/* ------------------------------------------------------------------
+  FOOTER
+------------------------------------------------------------------ */
+.internet_pages_booki footer{
+  background-color: #F2F2F2;
+  margin-top: 8%;
+  padding: 2% 2% 2% 4%;
+  display: flex;
+}
+.internet_pages_booki footer section{
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+}
+.internet_pages_booki footer section a{
+  margin-top: 2%;
+}
+.internet_pages_booki footer section a span:hover{
+  color: #0065FC;
+}

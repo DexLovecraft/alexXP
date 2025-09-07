@@ -1,0 +1,226 @@
+/* --------------------------------------------------------------
+   Fenêtre principale – dimensions de référence 528 × 693 px
+   -------------------------------------------------------------- */
+.le_simon {
+    height: 70%;                 /* déjà en % */
+    width: 30%;                  /* déjà en % */
+    top: 50px;                   /* position, on garde le px */
+    left: 200px;                 /* position, on garde le px */
+}
+
+/* --------------------------------------------------------------
+   Logo – hauteur passée en % (100 px → 14,42 %)
+   -------------------------------------------------------------- */
+.logo {
+    height: 60%;              /* 100 px / 693 px × 100 */
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------
+   Boîte contenant le plateau – largeur en % via clamp()
+   -------------------------------------------------------------- */
+.box {
+    justify-content: center;
+    margin: auto;
+    /* 220 px → 41,67 % (220 / 528 × 100) */
+    width: clamp(41.67%, 35%, 950px);
+    aspect-ratio: 1/1;
+    background-color: #313131;
+    border-radius: 10%;
+    display: grid;
+}
+
+/* --------------------------------------------------------------
+   Bouton générique – hauteur déjà en %
+   -------------------------------------------------------------- */
+.button {
+    height: 100%;                /* déjà en % */
+    aspect-ratio: 1/1;
+}
+
+/* --------------------------------------------------------------
+   Tous les autres éléments (inchangés)
+   -------------------------------------------------------------- */
+.simon_back{
+    margin: auto;
+    text-align: center;
+}     
+
+.le_simon_main{
+    background: #91e2e2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    margin: 0;
+    margin-top: 25px;
+    height: calc(100% - 25px);
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.le_simon.app_maximized .background{
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1.27;
+    margin: auto;
+}
+
+.difficulty {
+    width: 100%;
+    display: none;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.difficulty.visible {
+    display: flex;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.easy {
+    display: none;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.easy.visible {
+    display: flex;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.medium {
+    display: none;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.medium.visible {
+    display: flex;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.hard {
+    display: none;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.hard.visible {
+    display: flex;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+
+.difficulty_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.difficulty__selection {
+    text-align: center;
+    padding: 2% 19%;
+    margin: auto;
+    margin-top: 6%;
+    font-size: 1.5rem;
+    border: solid 5px;
+    border-radius: 50px;
+    transition: scale .1s ease-in-out;
+}
+.difficulty__selection--easy { border-color: #092; }
+.difficulty__selection--medium { border-color: #ff9500; }
+.difficulty__selection--hard { border-color: red; }
+.difficulty__selection--press { scale: .985; }
+
+.game {
+    display: flex;
+    flex-direction: column;
+}
+
+.box--easy {
+    grid-template-columns: 5% 1fr 5% 1fr 5%;
+    grid-template-rows: 5% 1fr 5% 1fr 5%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: auto;
+}
+.box--medium {
+    grid-template-columns: 5% 1fr 5% 1fr 5% 1fr 5%;
+    grid-template-rows: 5% 1fr 5% 1fr 5% 1fr 5%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: auto;
+}
+.box--hard {
+    grid-template-columns: 5% 1fr 5% 1fr 5% 1fr 5% 1fr 5%;
+    grid-template-rows: 5% 1fr 5% 1fr 5% 1fr 5% 1fr 5%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: auto;
+}
+
+/* ----- Boutons de couleur (hauteur déjà en %) ----- */
+.button--red,
+.button--yellow,
+.button--blue,
+.button--green,
+.button--orange,
+.button--purple,
+.button--pink,
+.button--teal,
+.button--maroon,
+.button--grey,
+.button--bordeaux,
+.button--plum,
+.button--mint-green,
+.button--sky-blue,
+.button--duck-blue,
+.button--gold {
+    opacity: .45;
+    transition: opacity .1s linear, scale .1s ease-in-out;
+}
+.button--red     { background-color: red;        grid-area: 2/2/3/3; }
+.button--yellow  { background-color: #ff0;      grid-area: 2/4/3/5; }
+.button--blue    { background-color: blue;      grid-area: 4/2/5/3; }
+.button--green   { background-color: green;     grid-area: 4/4/5/5; }
+.button--orange  { background-color: orange;    grid-area: 2/6/3/7; }
+.button--purple  { background-color: purple;    grid-area: 4/6/5/7; }
+.button--pink    { background-color: #f0f;      grid-area: 6/2/7/3; }
+.button--teal    { background-color: aqua;      grid-area: 6/4/7/5; }
+.button--maroon  { background-color: #735514;   grid-area: 6/6/7/7; }
+.button--grey    { background-color: gray;      grid-area: 2/8/3/9; }
+.button--bordeaux{ background-color: maroon;    grid-area: 4/8/5/9; }
+.button--plum    { background-color: #8b00ff;   grid-area: 6/8/7/9; }
+.button--mint-green{background-color:#1fdb32;   grid-area: 8/2/9/3; }
+.button--sky-blue{background-color:#00bfff;    grid-area: 8/4/9/5; }
+.button--duck-blue{background-color: teal;     grid-area: 8/6/9/7; }
+.button--gold    { background-color: gold;      grid-area: 8/8/9/9; }
+
+.button--top-left    { border-top-left-radius: 100px; }
+.button--top-right   { border-top-right-radius: 100px; }
+.button--bottom-left { border-bottom-left-radius: 100px; }
+.button--bottom-right{ border-bottom-right-radius: 100px; }
+
+.button--light { opacity: 1; }
+.button--press { scale: .985; }
+
+.background--false, .easy--false, .medium--false, .hard--false { background: #e15d5d; }
+.background--true , .easy--true , .medium--true , .hard--true { background: #64ca64; }
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto auto auto;
+    font-size: 1.2rem;
+}
+@media (min-width: 1024px) {
+    .info { flex-direction: row; font-size: 1.7rem; }
+}
+.info__child { padding: 0 20px; }
+@media (min-width: 1024px) {
+    .info__border {
+        border-right: 4px solid #000;
+        border-left: 4px solid #000;
+    }
+}

@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap');
+
+.internet {
+    aspect-ratio: 16/9;
+    height: 75%;
+    width: auto;
+    background-color: rgb(8, 49, 217);
+    top: 100px;
+    left: 250px;
+}
+
+.main_internet {
+    background: linear-gradient(to right, rgb(237, 237, 229) 0%, rgb(237, 232, 205) 100%);
+    flex: 1 1 0%;
+    position: relative;
+    margin-top: 25px;
+    height: calc(100% - 25px);
+}
+.internet_function_bar{
+    height:3.64%;
+    display:flex;
+    align-items:center;
+    font-size:11px;
+    padding:1px 3px 0px;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.internet_function_bar_icon{
+    height: 100%;
+    aspect-ratio: 1;
+    margin: auto 1px;
+}
+.internet_function_bar_icon-big{
+    height: 80%;
+    aspect-ratio: 1;
+    margin: auto 1px;
+}
+.internet_function_bar_button{
+    display:flex;
+    height:100%;
+    align-items:center;
+    border:1px solid rgba(0,0,0,0);
+    border-radius:3px;
+}
+.internet_function_bar_button.disable{
+    filter:grayscale(1);
+    opacity:0.7;
+    display:flex;
+    height:100%;
+    align-items:center;
+    border:1px solid rgba(0,0,0,0);
+}
+.internet_function_bar_separate{
+    height:90%;
+    width:1px;
+    background-color:rgba(0,0,0,0.2);
+    margin:0px 2px;
+}
+.internet_function_bar_arrow{
+    height:100%;
+    display:flex;
+    align-items:center;
+    margin:0px 4px;
+}
+.internet_function_bar_arrow::before{
+    content:"";
+    display:block;
+    border-width:3px 3px 0px;
+    border-color:rgb(0,0,0) transparent;
+    border-style:solid;
+}
+.internet_address_bar{
+    border-top:1px solid rgba(255,255,255,0.7);
+    height:2.96%;
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    padding:0px 2px 2px;
+    box-shadow:rgb(45,45,45) 0px -2px 3px -1px inset;
+}
+.internet_address_bar_title{
+    line-height:100%;
+    color:rgba(0,0,0,0.5);
+    padding:5px;
+}
+.internet_address_bar_content{
+    border:1px solid rgba(122,122,255,0.6);
+    height:100%;
+    display:flex;
+    flex:1 1 0%;
+    align-items:center;
+    background-color:white;
+    position:relative;
+}
+.internet_logo_status{
+    height:1.06%;
+    margin-right:3px;
+}
+.internet_address_bar_content_dropdown{
+    height:1.14%;
+    right:1px;
+    position:absolute;
+}
+.internet_address_bar_content_text{
+    position:absolute;
+    white-space:nowrap;
+    left:16px;
+    right:17px;
+    overflow:hidden;
+}
+.internet_address_bar_go{
+    display:flex;
+    align-items:center;
+    padding:0px 18px 0px 5px;
+    height:100%;
+    position:relative;
+}
+.internet_address_bar_go_img{
+    height:95%;
+    border:1px solid rgba(255,255,255,0.2);
+    margin-right:3px;
+}
+.internet_footer{
+    height:2.02%;
+    border-top:1px solid transparent;
+    box-shadow:rgba(50,50,50,0.8) 0px 1px 3px inset;
+    background-color:rgb(236,233,216);
+    display:flex;
+    align-items:center;
+    padding-top:2px;
+}
+.internet_footer_status{
+    flex:1 1 0%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    padding-left:2px;
+}
+.internet_footer_text{
+    font-size:11px;
+}
+.internet_footer_block{
+    height:85%;
+    width:1.32%;
+    border-left:1px solid rgba(0,0,0,0.15);
+    box-shadow:rgba(255,255,255,0.7) 1px 0px inset;
+}
+.internet_footer_right{
+    display:flex;
+    align-items:center;
+    width:11.35%;
+    height:100%;
+    border-left:1px solid rgba(0,0,0,0.11);
+    box-shadow:rgba(255,255,255,0.7) 1px 0px inset;
+    padding-left:5px;
+    position:relative;
+}
+
+.internet_footer_right_dots{
+    position:absolute;
+    right:11px;
+    bottom:-1px;
+    height : 8.98%;
+    aspect-ratio: 1;
+    box-shadow:rgba(0,0,0,0.25) 2px 0px,rgba(0,0,0,0.25) 5.5px 0px,rgba(0,0,0,0.25) 9px 0px,rgba(0,0,0,0.25) 5.5px -3.5px,rgba(0,0,0,0.25) 9px -3.5px,rgba(0,0,0,0.25) 9px -7px,rgb(255,255,255) 3px 1px,rgb(255,255,255) 6.5px 1px,rgb(255,255,255) 10px 1px,rgb(255,255,255) 10px -2.5px,rgb(255,255,255) 10px -6px;
+}
+.internet_footer_img{
+  height: 100%;
+}
+.internet_content{
+    height:calc(100% - 8.98%);
+    width:100%;
+    background:white;
+    overflow: scroll;
+    position:relative;
+}
