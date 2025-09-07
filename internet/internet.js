@@ -20,7 +20,7 @@ async function loadSite(url , websiteName, pages) {
   if (!document.querySelector(`link[href="/alexXP/internet/website/${websiteName}/${websiteName}.css"]`)) {
     const style = document.createElement('link');
     style.rel = 'stylesheet'
-    style.href = `/internet/website/${websiteName}/${websiteName}.css`;
+    style.href = `/alexXP/internet/website/${websiteName}/${websiteName}.css`;
     document.querySelector('head').appendChild(style)
   } 
   
@@ -42,7 +42,7 @@ const loadPages = () => {
   links.forEach(link => {
       link.addEventListener('click', event => {
       event.preventDefault();
-      loadSite(`/internet/website/${link.dataset.link}/${link.dataset.link}.html` , link.dataset.link).catch(err => console.error(err));
+      loadSite(`/alexXP/internet/website/${link.dataset.link}/${link.dataset.link}.html` , link.dataset.link).catch(err => console.error(err));
     });
   });
   // comportement outside link (menu)
@@ -70,5 +70,5 @@ const goBack = () => {
       } 
 }
 
-loadSite('/internet/website/home/home.html', 'home')
+loadSite('/alexXP/internet/website/home/home.html', 'home')
 

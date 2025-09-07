@@ -150,13 +150,13 @@ async function loadApp(url , appname) {
     app.innerHTML = html
     app.style.zIndex = 2;
     document.querySelector(".desktop").appendChild(app);
-    if (!document.querySelector(`link[href="/alexXP/${appname}/${appname}.css]`) && UrlExists(`/${appname}/${appname}.css`)) {
+    if (!document.querySelector(`link[href="/alexXP/${appname}/${appname}.css]`) && UrlExists(`/alexXP/${appname}/${appname}.css`)) {
         const style = document.createElement('link');
         style.rel = 'stylesheet'
         style.href = `/${appname}/${appname}.css`;
         document.querySelector('head').appendChild(style)
     }
-    if (!document.querySelector(`script[src="/alexXP/${appname}/${appname}.js]`) && UrlExists(`/${appname}/${appname}.js`)){
+    if (!document.querySelector(`script[src="/alexXP/${appname}/${appname}.js]`) && UrlExists(`/alexXP/${appname}/${appname}.js`)){
         const script = document.createElement('script');
         script.src = `/${appname}/${appname}.js`;
         document.querySelector(".desktop").appendChild(script);
@@ -167,7 +167,7 @@ async function loadApp(url , appname) {
 document.querySelectorAll('.desktop_icon').forEach(icon => {
     icon.addEventListener('dblclick', async () => {
         if (!document.querySelector(`.app[data-appname=${icon.dataset.appname}]`)) {
-            await loadApp(`/${icon.dataset.appname}/${icon.dataset.appname}.html`, icon.dataset.appname);
+            await loadApp(`/alexXP/${icon.dataset.appname}/${icon.dataset.appname}.html`, icon.dataset.appname);
                 
         }
         else {
