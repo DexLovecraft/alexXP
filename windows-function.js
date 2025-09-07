@@ -70,7 +70,7 @@ const windows = document.querySelector('.windows');
 const offScreen = document.querySelector('.off_screen');
 const viewport = document.querySelector('.viewport');
 const apps = document.querySelector('.app');
-var bootup_sound = new Audio('./alexXP/bootup_sound.mp3');
+var bootup_sound = new Audio('./sound/bootup_sound.mp3');
 bootup_sound.volume = 0.25
 
 if (offScreen.classList.contains('visible')) {
