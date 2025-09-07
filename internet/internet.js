@@ -42,7 +42,7 @@ const loadPages = () => {
   links.forEach(link => {
       link.addEventListener('click', event => {
       event.preventDefault();
-      loadSite(`./internet/ebsite/${link.dataset.link}/${link.dataset.link}.html` , link.dataset.link).catch(err => console.error(err));
+      loadSite(`./internet/website/${link.dataset.link}/${link.dataset.link}.html` , link.dataset.link).catch(err => console.error(err));
     });
   });
   // comportement outside link (menu)
