@@ -1,9 +1,8 @@
-/*booki */
+/*
+    Code Css du site web booki 
+    Tout les selecteurs sont précédé d'une class .internet_pages_booki pour contenir ce style qu'a la page web 
+*/
 
-
-/* ------------------------------------------------------------------
-   GLOBAL ELEMENT SELECTORS
------------------------------------------------------------------- */
 .internet_pages_booki body{
   font-size: clamp(-5px, calc(0px + 0.681%), 38px);
   margin: 0;
@@ -11,23 +10,14 @@
   width: 100%;
   font-family: 'Raleway',sans-serif;
   font-weight: 500;
-  /*Clamp is for the fluidity of all the text of the page*/
   font-size: clamp(11px, calc(11px + ((1vw - 9.92px) * 0.8291)), 23px);
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
-/* ------------------------------------------------------------------
-   HEADER SECTION
------------------------------------------------------------------- */
 .internet_pages_booki header{
   display: flex;
   justify-content: space-between;
 }
-
-/* ------------------------------------------------------------------
-   LOGO & NAVIGATION
------------------------------------------------------------------- */
 .internet_pages_booki .logo{
   margin-left: 6%;
   margin-top: 2%;
@@ -67,18 +57,10 @@
   color: #0065FC;
   position: relative;
 }
-
-/* ------------------------------------------------------------------
-   TITRES GÉNÉRAUX
------------------------------------------------------------------- */
 .internet_pages_booki .title{
   font-weight: 700;
   font-size: 170%;
 }
-
-/* ------------------------------------------------------------------
-   ZONE DE RECHERCHE
------------------------------------------------------------------- */
 .internet_pages_booki .search_zone{
   margin-top: 5.05%;
   margin-left: 4%;
@@ -133,11 +115,6 @@
   z-index: 1;
   border-radius:0 9px 9px 0;
 }
-
-
-/* ------------------------------------------------------------------
-   FILTRES
------------------------------------------------------------------- */
 .internet_pages_booki .filter_zone{
   margin: 1% auto 1% 4%;
 }
@@ -186,8 +163,6 @@
   background-color: #0065FC;
   border: 2px solid #0065FC;
 }
-
-/* Media query for height <= 639px: reduce all sizes */
 @media (max-height: 639px) {
   .internet_pages_booki .search_zone p {
     font-size: 16px;
@@ -234,9 +209,6 @@
     margin: auto 10px auto 7px;
   }
 }
-/* ------------------------------------------------------------------
-  INFO BAR
------------------------------------------------------------------- */
 .internet_pages_booki .info{
   display: flex;
   align-items: center;
@@ -250,16 +222,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px; /* 16:9 ratio */
+  border-radius: 20px;
   font-size: 19px;
 }
 .internet_pages_booki .info p{
   margin-left: 1%;
 }
-
-/* ------------------------------------------------------------------
-  CONTENU PRINCIPAL
------------------------------------------------------------------- */
 .internet_pages_booki .housing_zone{
   display: flex;
   align-items: start;
@@ -270,10 +238,6 @@
 .internet_pages_booki .trending{
   padding: 2%;
 }
-
-/* ------------------------------------------------------------------
-  HABITATIONS
------------------------------------------------------------------- */
 .internet_pages_booki .house{
   padding-top: 2.02%;
   flex: 2;
@@ -301,10 +265,6 @@
   height: 30%;
   margin-bottom: 0;
 }
-
-/* ------------------------------------------------------------------
-  CARTES DE LOGEMENT
------------------------------------------------------------------- */
 .internet_pages_booki .card{
   background-color: #fff;
   width: 30%;
@@ -345,10 +305,6 @@
 .internet_pages_booki .more{
   margin: 6% auto;
 }
-
-/* ------------------------------------------------------------------
-  TENDANCES
------------------------------------------------------------------- */
 .internet_pages_booki .trending{
   flex: 1;
   margin: 2% 4% 0 2%;
@@ -405,10 +361,6 @@
 .internet_pages_booki .card_trend_text .star{
   margin: 20% 0 0 2% ;
 }
-
-/* ------------------------------------------------------------------
-  ACTIVITÉS
------------------------------------------------------------------- */
 .internet_pages_booki .activity_zone{
   height: 75vh;
   margin: 3%;
@@ -483,10 +435,6 @@
   height: 22%;
   bottom: 22%;
 }
-
-/* ------------------------------------------------------------------
-  FOOTER
------------------------------------------------------------------- */
 .internet_pages_booki footer{
   background-color: #F2F2F2;
   margin-top: 8%;

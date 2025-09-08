@@ -1,3 +1,7 @@
+/*
+  Feuille de style de l'app Calculator
+*/
+
 .calculator  {
   margin: 0;
   grid-template-columns: repeat(4, 1fr);
@@ -63,17 +67,18 @@
     border: ridge 5px rgba(255, 255, 255, 0.5);
     
 }
-.QFE_container{
+.QFE{
   height: 100%;
     width: 90%;
     top: 35%;
     position: relative;
+    margin: auto;
 }
 
-.QFE_container{
+.QFE{
     display: none;
 }
-.QFE_container.visible{
+.QFE.visible{
     display: flex;
     flex-direction: column;
 }
@@ -81,18 +86,18 @@
   display: flex;
 }
 
-.QFE_container h2{
+.QFE h2{
   width: 100%;
     text-align: center;
     font-size: 1.2rem;
 }
 
-.QFE{
+.QFE_container{
     width: 100%;
     display: flex;
     align-self: center;
 }
-.QFE p{
+.QFE_container p{
     margin: auto 3px; 
 }
 .label_calculator {

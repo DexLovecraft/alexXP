@@ -1,4 +1,8 @@
-.internet_pages_gallery html,
+/*
+    Code Css du site web Dex's Gallery 
+    Tout les selecteurs sont précédé d'une class .internet_pages_gallery pour contenir ce style qu'a la page web 
+*/
+
 .internet_pages_gallery body, 
 .internet_pages_gallery header,
 .internet_pages_gallery footer {

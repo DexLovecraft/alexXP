@@ -1,7 +1,13 @@
+/*
+    Code Css du site web Oh My Food
+    Tout les selecteurs sont précédé d'une class .internet_pages_ohmyfood pour contenir ce style qu'a la page web 
+    Ce projet étais a la base codé avec Sass, en Scss. pour les bienfait de ce projet j'ai recuperer le code processé en Css puis réadapté. 
+*/
+
+/* Import est Keyframes nécéssaire au site */
 @import "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&family=Shrikhand&display=swap";
 
-/* Animations */
 @keyframes loader__background {
     0% { transform: scaleY(1); opacity: 1; }
     25% { opacity: 1; }
@@ -96,7 +102,11 @@
     100% { transform: rotate(720deg); }
 }
 
-/* Base styles */
+/*
+    Code css de la homepage Oh My food 
+*/
+
+
 .internet_pages_ohmyfood body {
     margin: 0;
     height: 100%;
@@ -123,7 +133,6 @@
     }
 }
 
-/* Titles */
 .internet_pages_ohmyfood .title {
     font-size: 1.5em;
     font-weight: 700;
@@ -136,7 +145,6 @@
     width: 100%;
 }
 
-/* Buttons */
 .internet_pages_ohmyfood .button {
     height: 54px;
     width: 20%;
@@ -167,7 +175,6 @@
     max-width: 120px;
 }
 
-/* Header */
 .internet_pages_ohmyfood .header {
     padding: 4%;
     box-shadow: 0px 1px 15px 0px rgba(0,0,0,.35);
@@ -193,8 +200,6 @@
 .internet_pages_ohmyfood .header--menu__icon {
     font-size: 120%;
 }
-
-/* Footer */
 
 .internet_pages_ohmyfood .footer {
     background: #353535;
@@ -223,7 +228,6 @@
     font-size: 150%;
 }
 
-/* Loader */
 .internet_pages_ohmyfood .loaderbg {
     height: 100%;
     width: 100%;
@@ -275,9 +279,6 @@
 .internet_pages_ohmyfood .dot--5 { animation: dot 1.2S linear .8s infinite; align-self: flex-end; }
 .internet_pages_ohmyfood .dot--6 { animation: dot 1.2S linear 1s infinite; align-self: flex-start; }
 
-
-/*localisation */
-
 .internet_pages_ohmyfood .localisation{
     background-color: #eaeaea;
     display: flex;
@@ -291,10 +292,6 @@
     font-weight: 500;
 }
 
-
-
-
-/* Welcome */
 .internet_pages_ohmyfood .welcome {
     background: #f6f6f6;
     height: 340px;
@@ -312,7 +309,6 @@
     margin: 0 0 35px 0;
 }
 
-/* Fonctionement */
 .internet_pages_ohmyfood .fonctionement {
     padding: 30px;
 }
@@ -364,7 +360,6 @@
     background: rgba(147,86,220,.2);
 }
 
-/* Restaurants */
 .internet_pages_ohmyfood .restaurants {
     padding: 30px;
     background: #f6f6f6;
@@ -379,7 +374,6 @@
     }
 }
 
-/* Card */
 .internet_pages_ohmyfood .card {
     border-radius: 25px;
     background: #fff;
@@ -484,7 +478,8 @@
     animation-fill-mode: both;
 }
 
-/* Topmenu */
+/* Code des pages menu */
+
 .internet_pages_ohmyfood .topmenu {
     height: 300px;
     width: 100%;
@@ -538,7 +533,6 @@
     .internet_pages_ohmyfood .topmenu__icon { grid-area: 2/9/3/10; }
 }
 
-/* Main menu */
 .internet_pages_ohmyfood .main--menu {
     padding: 0 20px 45px 20px;
     background: #f6f6f6;
@@ -556,7 +550,6 @@
     border-bottom: #99e2d0 3px solid;
 }
 
-/* Card container */
 .internet_pages_ohmyfood .card-container {
     width: 100%;
     height: 70px;
@@ -582,7 +575,6 @@
 .internet_pages_ohmyfood .card-container:hover > .block-vert { animation: push 2s; }
 .internet_pages_ohmyfood .card-container:hover > .block-vert > .block-vert__icon { animation: rotate 2s; }
 
-/* Dishes card */
 .internet_pages_ohmyfood .d-card {
     background-color: #fff;
     width: 100%;
@@ -636,7 +628,7 @@
 .internet_pages_ohmyfood .block-vert {
     background: #99e2d0;
     width: 0px;
-    max-width: 70px;
+    max-width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;

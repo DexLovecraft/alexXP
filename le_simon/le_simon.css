@@ -1,30 +1,25 @@
-/* --------------------------------------------------------------
-   Fenêtre principale – dimensions de référence 528 × 693 px
-   -------------------------------------------------------------- */
+/*
+  Feuille de style de l'app Le Simon
+*/
+
+
 .le_simon {
-    height: 70%;                 /* déjà en % */
-    width: 30%;                  /* déjà en % */
-    top: 50px;                   /* position, on garde le px */
-    left: 200px;                 /* position, on garde le px */
+    height: 70%;                 
+    width: 30%;                  
+    top: 50px;                  
+    left: 200px;                 
 }
 
-/* --------------------------------------------------------------
-   Logo – hauteur passée en % (100 px → 14,42 %)
-   -------------------------------------------------------------- */
 .logo {
-    height: 60%;              /* 100 px / 693 px × 100 */
+    height: 60%;              
     display: flex;
     justify-content: center;
     margin: 0 auto;
 }
 
-/* --------------------------------------------------------------
-   Boîte contenant le plateau – largeur en % via clamp()
-   -------------------------------------------------------------- */
 .box {
     justify-content: center;
     margin: auto;
-    /* 220 px → 41,67 % (220 / 528 × 100) */
     width: clamp(41.67%, 35%, 950px);
     aspect-ratio: 1/1;
     background-color: #313131;
@@ -32,17 +27,11 @@
     display: grid;
 }
 
-/* --------------------------------------------------------------
-   Bouton générique – hauteur déjà en %
-   -------------------------------------------------------------- */
 .button {
-    height: 100%;                /* déjà en % */
+    height: 100%;                
     aspect-ratio: 1/1;
 }
 
-/* --------------------------------------------------------------
-   Tous les autres éléments (inchangés)
-   -------------------------------------------------------------- */
 .simon_back{
     margin: auto;
     text-align: center;
@@ -158,7 +147,6 @@
     margin: auto;
 }
 
-/* ----- Boutons de couleur (hauteur déjà en %) ----- */
 .button--red,
 .button--yellow,
 .button--blue,
