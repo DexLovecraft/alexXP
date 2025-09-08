@@ -16,8 +16,8 @@
 html, body {
   margin:0;
   padding:0;
-  height:100vh;
-  width:100vw;
+  height:100%;
+  width:100%;
   overflow:hidden; 
    display: flex;                   
   align-items: center;             
@@ -454,4 +454,20 @@ div.app_maximized{
   .off_screen.visible, .windows.visible, .viewport{
     display: none;
   }
+}
+@media (orientation: portrait){
+  .rotate {
+    display: flex;
+  }
+  .off_screen.visible, .windows.visible, .viewport{
+    display: none;
+  }
+}
+@media (max-height : 600px) {
+  .viewport{
+    width:90vw;                 
+    height:90vh;                 
+    max-width:calc(90vh * 16 / 9);   
+    max-height:calc(90vw * 9 / 16); 
+  } 
 }
