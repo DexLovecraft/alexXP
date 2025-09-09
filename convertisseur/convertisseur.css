@@ -2,7 +2,7 @@
   Feuille de style de l'app Calculator
 */
 
-.calculator  {
+.convertisseur  {
   margin: 0;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -16,7 +16,7 @@
 }
 
 
-.calculator.visible{
+.convertisseur.visible{
   display: grid;
 }
 
