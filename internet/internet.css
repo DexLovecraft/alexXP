@@ -8,7 +8,7 @@
 .internet {
     aspect-ratio: 16/9;
     height: 75%;
-    width: auto;
+    width: auto; 
     background-color: rgb(8, 49, 217);
     top: 100px;
     left: 250px;
@@ -49,10 +49,6 @@
 .internet_function_bar_button.disable{
     filter:grayscale(1);
     opacity:0.7;
-    display:flex;
-    height:100%;
-    align-items:center;
-    border:1px solid rgba(0,0,0,0);
 }
 .internet_function_bar_separate{
     height:90%;

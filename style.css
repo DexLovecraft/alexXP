@@ -35,12 +35,16 @@ html, body {
   overflow:hidden;     
  
 }
-/* Code par default de la class visible */
+/* Code par default des class modificateur */
 div.visible{
   display: block;
 }
+.disable{
+    filter:grayscale(1);
+    opacity:0.7;
+}
 
-/* code des different ecran hors windows */
+/* code des different ecran hors alexXP*/
 /* Blue screen */
 .blue_screen{
   width: 100%;
@@ -90,8 +94,8 @@ div.visible{
   width: 100%;
 }
 
-/* Style de windows */
-.windows {
+/* Style de alexXP */
+.alexXP {
   display: none;
   height: 100%;
 
@@ -213,7 +217,6 @@ div.app_maximized{
   width: 71.8%;
   justify-content: center;
   border-radius: 3px;
-  border: 2px solid rgba(222, 222, 222, 0.8);
 }
 
 .desktop_icon_text {
@@ -380,7 +383,7 @@ div.app_maximized{
   border-radius: 2px;
   margin-top: 2px;
   padding: 0px 8px;
-  height: 26px;
+  height: 75%;
   font-size: 11px;
   background-color: rgb(60, 129, 243);
   box-shadow: rgba(0, 0, 0, 0.3) -1px 0px inset, rgba(255, 255, 255, 0.2) 1px 1px 1px inset;
@@ -433,7 +436,7 @@ div.app_maximized{
     z-index: 10;
     display: none;
 } 
-.windows .a380 {
+.alexXP .a380 {
     display: block;
 }
 .a380.animation{
@@ -451,7 +454,7 @@ div.app_maximized{
   .rotate {
     display: flex;
   }
-  .off_screen.visible, .windows.visible, .viewport{
+  .off_screen.visible, .alexXP.visible, .viewport{
     display: none;
   }
 }
@@ -459,7 +462,7 @@ div.app_maximized{
   .rotate {
     display: flex;
   }
-  .off_screen.visible, .windows.visible, .viewport{
+  .off_screen.visible, .alexXP.visible, .viewport{
     display: none;
   }
 }
