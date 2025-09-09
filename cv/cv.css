@@ -1,0 +1,14 @@
+.cv {
+    height: 85%;
+    width: 60%;
+    top: 3%;
+    left: 15%;
+}
+
+.cv_content {
+    width: 100%;
+    height: calc(100% - 25px);
+    background-color: #444443;
+    position: relative;
+    margin: 25px auto auto auto;
+}

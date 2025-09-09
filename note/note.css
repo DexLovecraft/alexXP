@@ -12,7 +12,6 @@
     left: 50%;
     padding: 3px;
     z-index: 1;
-    overflow: scroll;
     background-color: rgb(8, 49, 217);
 }
 
@@ -20,15 +19,20 @@
     margin-top: 25px;
     height: calc(100% - 25px);
     width: 100%;
-    padding: 1%;
+    padding: 4%;
+    overflow: scroll;
     background-color: #dbe0e2;
+}
+.note *{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(2px, calc(6px + 0.681vw), 38px);
 }
 
 .note h2{
-    font-family: 'Times New Roman', Times, serif;
+    margin: 1% auto;
     font-size: clamp(4px, calc(10px + 0.681vw), 48px);
 }
-.note p{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: clamp(2px, calc(6px + 0.681vw), 38px);
+
+.note p, .note ul {
+    margin: 2% auto;
 }

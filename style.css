@@ -209,6 +209,12 @@ div.app_maximized{
   aspect-ratio: 1/1;
   cursor: pointer;
 }
+.desktop_icon-cv {
+  width: 10%;
+  position: absolute;
+  bottom: 3.52%;
+  right: 0;
+}
 
 .desktop_icon_img {
   aspect-ratio: 1 / 1;
