@@ -89,6 +89,21 @@ const footerWindowCreation = (app) => {
     }
 }
 
+function bringToFront(app) {
+    // remettre toutes les apps derrière sauf celle-ci
+    loadeadApps.forEach(otherApp => {
+        otherApp.style.zIndex = (otherApp === app) ? 2 : 1;
+    });
+
+    // mettre le bouton de la barre des tâches en focus
+    document.querySelectorAll('.footer_window').forEach(appTaskbar => {
+        appTaskbar.classList.toggle(
+            'focus',
+            appTaskbar.dataset.appname === app.dataset.appname
+        );
+    });
+}
+
 // fonction pour perdre le focus du racourcie de la barre des tache quand on clique en dehors de la fenetre 
 const loseFocus = (e) => {
     if (e.target !== e.currentTarget) return;
@@ -96,63 +111,48 @@ const loseFocus = (e) => {
         appTaskbar.classList.remove('focus');
     });
 }
-
-const getFocus = (app) => {
-    // on remet l'app au premier plan 
-    console.log(app)
-    loadeadApps.forEach(otherApp => { otherApp.style.zIndex = otherApp === app ? 2 : 1; console.log(otherApp)});
-    // et on remet le focus sur la seul fenetre de l'app ou l'on a clique 
-    document.querySelectorAll('.footer_window').forEach(appTaskbar => {
-    appTaskbar.classList.remove('focus')})
-    if ( document.querySelector(`.footer_window[data-appname="${app.dataset.appname}"]`)) document.querySelector(`.footer_window[data-appname="${app.dataset.appname}"]`).classList.add('focus');
-}
  
 // fonction ferme l'application 
-const closeApp = (app) => {
-    if (app.classList.contains('visible')) {
-        app.classList.remove('visible');
-        document.querySelector(`.footer_window[data-appname="${app.dataset.appname}"]`).remove();
+const closeApp = (appToClose) => {
+    if (appToClose.classList.contains('visible')) {
+        appToClose.classList.remove('visible');
+        document.querySelector(`.footer_window[data-appname="${appToClose.dataset.appname}"]`).remove();
 }}
 
 // fonction on reduit (ferme mais on garde le racourcie)
-const minimize = (e, app) => {
+const minimize = (e, appToMinimize) => {
     e.stopPropagation();
-    if (app.classList.contains('visible')) {
-        document.querySelector(`.footer_window[data-appname="${app.dataset.appname}"]`).classList.remove('focus');
-        app.classList.remove('visible')
+    if (appToMinimize.classList.contains('visible')) {
+        document.querySelector(`.footer_window[data-appname="${appToMinimize.dataset.appname}"]`).classList.remove('focus');
+        appToMinimize.classList.remove('visible')
 }}
 
 // fonction qui lorsqu'on clique sur le racourcie de la barre des tache lui remet le focus, rouvre la fenetre de l'app correspondante
 //  et remet l'application au premier plan
-const unminimize = (app, appTaskbar) => {
-    document.querySelectorAll('.footer_window').forEach(otherAppTaskbar => {
-        if (otherAppTaskbar === appTaskbar) otherAppTaskbar.classList.add('focus');
-        else otherAppTaskbar.classList.remove('focus');
-    });
-    if (!document.querySelector(`.app[data-appname="${appTaskbar.dataset.appname}"]`).classList.contains('visible')) {
-        document.querySelector(`.app[data-appname="${appTaskbar.dataset.appname}"]`).classList.add('visible')
-    }
-    app.style.zIndex = appTaskbar.dataset.appname === app.dataset.appname ? 2 : 1;;
+const unminimize = (appTaskbar) => {
+    const app = document.querySelector(`.app[data-appname="${appTaskbar.dataset.appname}"]`);
+    if (!app.classList.contains('visible')) app.classList.add('visible');
+    bringToFront(app);
 }
 
 // Au clique si pas en plein ecran , on met en plein ecran, si en plein ecran on reduit en reprenant la dernier postion connu 
-const maximise = (e, app, state) => {
-    if (!app.classList.contains('app_maximized')) {
-        app.classList.add('app_maximized')
-        app.style.left = `0px`;
-        app.style.top = `0px`;
+const maximise = (e, appToMaximise, state) => {
+    if (!appToMaximise.classList.contains('app_maximized')) {
+        appToMaximise.classList.add('app_maximized')
+        appToMaximise.style.left = `0px`;
+        appToMaximise.style.top = `0px`;
     }
     else {
-        app.classList.remove('app_maximized')
-        app.style.left = state.newLeft;
-        app.style.top = state.newTop;
+        appToMaximise.classList.remove('app_maximized')
+        appToMaximise.style.left = state.newLeft;
+        appToMaximise.style.top = state.newTop;
     }
 }
 
-const dragAndDropStart = (e, app, state) => {
+const dragAndDropStart = (e, appToStart, state) => {
     // si on clique sur le header , qu'on fait clic gauche et que l'application n'est pas en plein ecran
     if (e.target !== e.currentTarget) return; 
-    if (e.button !== 0 || app.classList.contains('app_maximized')) return;
+    if (e.button !== 0 || appToStart.classList.contains('app_maximized')) return;
 
     // on commence le movement 
     state.moving = true;
@@ -162,20 +162,17 @@ const dragAndDropStart = (e, app, state) => {
     state.startCursorTop = e.clientY;
 
     // et la position de la fenetre 
-    state.startWindowLeft = app.offsetLeft;
-    state.startWindowTop = app.offsetTop;
+    state.startWindowLeft = appToStart.offsetLeft;
+    state.startWindowTop = appToStart.offsetTop;
 }
 
-const dragAndDropEnd = (app, state) => {
+const dragAndDropEnd = (appToEnd, state) => {
     state.moving = false;
-    loadeadApps.forEach(otherApp => {
-        otherApp.style.zIndex = (otherApp === app) ? 2 : 1;
-    });
 }
 
-const dragAndDropMove = (e, app, state) => {
+const dragAndDropMove = (e, appToMove, state) => {
     if (!state.moving) return;
-    loadeadApps.forEach(otherApp => { otherApp.style.zIndex = (otherApp === app) ? 2 : 1; }); // on met au premier plan 
+     // on met au premier plan 
 
     // on calcul la nouvelle position du curseur 
     const newCursorLeft = e.clientX - state.startCursorLeft;
@@ -189,55 +186,50 @@ const dragAndDropMove = (e, app, state) => {
     const min_x = 0;
     const min_y = 0;
     // la largeur de viewport (la fenetre en 16/9) moins la largeur de l'app 
-    const max_x = viewport.clientWidth  - app.offsetWidth; 
+    const max_x = viewport.clientWidth  - appToMove.offsetWidth; 
     // la hauteur de viewport (la fenetre en 16/9) moins la hauteur de l'app moins la hauteur de la barre des tache
-    const max_y = viewport.clientHeight - app.offsetHeight - viewport.clientHeight * 0.0352; 
+    const max_y = viewport.clientHeight - appToMove.offsetHeight - viewport.clientHeight * 0.0352; 
 
     // on verifie notre nouvelle position, si on depasse le min on applique le min et si on depasse le max on applique le max
     state.newLeft = `${Math.min(Math.max(state.newLeft, min_x), max_x)}px`;
     state.newTop  = `${Math.min(Math.max(state.newTop,  min_y), max_y)}px`;
 
     // on change le css de la fenetre 
-    app.style.left = `${state.newLeft}`;
-    app.style.top  = `${state.newTop}`;
+    appToMove.style.left = `${state.newLeft}`;
+    appToMove.style.top  = `${state.newTop}`;
 }
  
 // Fonction general qui appelle les fonction des application.  
-const appComportementInit = (app) => {// pour chaque app on  : 
-
+const appComportementInit = (appLoaded) => {// pour chaque app on  : 
     // declare ses element du dom
-    const minimizeButton = app.querySelector(`.header_button-minimize`)
-    const maximizeButton = app.querySelector(`.header_button-maximize`)
-    const closeButton = app.querySelector(`.header_button-close`)
-    const appHeader = app.querySelector(`.app_header`)
-
-    const state = { // declare l'etat pour le drag and drop 
+    const minimizeButton = appLoaded.querySelector(`.header_button-minimize`);
+    const maximizeButton = appLoaded.querySelector(`.header_button-maximize`);
+    const closeButton = appLoaded.querySelector(`.header_button-close`);
+    const appHeader = appLoaded.querySelector(`.app_header`);
+    // declare l'etat pour le drag and drop 
+    const state = { 
         moving: false,
         startCursorLeft: 0,
         startCursorTop: 0,
         startWindowLeft: 0,
         startWindowTop: 0,
         // on init avec sa position au demarage
-        newLeft: window.getComputedStyle(app).getPropertyValue('left'),
-        newTop: window.getComputedStyle(app).getPropertyValue('top')
+        newLeft: window.getComputedStyle(appLoaded).getPropertyValue('left'),
+        newTop: window.getComputedStyle(appLoaded).getPropertyValue('top')
     };
-    footerWindowCreation(app) // on creer son racourcie dans la barre des tache
-    
     // on appelle nos fonction de comportement 
-    document.querySelectorAll('.footer_window').forEach(app_taskbar => {
-        app_taskbar.addEventListener('click', () => {unminimize(app, app_taskbar)})
-    })
-    app.addEventListener('click', () => { getFocus(app) });
+    document.querySelectorAll('.footer_window').forEach(appTaskbar => {
+        appTaskbar.addEventListener('click', () => {unminimize(appTaskbar)});
+    });
+    appLoaded.addEventListener('pointerdown', () => { bringToFront(appLoaded)});
     alexXP.addEventListener('click', (e) => { loseFocus(e) });
-    closeButton.addEventListener('click', () => { closeApp(app) });
-    minimizeButton.addEventListener('click', (e) => {minimize(e, app)});
-    console.log(maximizeButton)
-    maximizeButton.addEventListener('click', (e) => {maximise(e, app, state)});        
-    
-    appHeader.addEventListener('pointerdown', (e) => { dragAndDropStart(e, app, state)  });
-    document.addEventListener('pointerup', () => { dragAndDropEnd(app, state) });
-    document.addEventListener('pointermove', (e) => {dragAndDropMove(e, app, state)})
-}
+    closeButton.addEventListener('click', () => { closeApp(appLoaded) });
+    minimizeButton.addEventListener('click', (e) => {minimize(e, appLoaded)});
+    maximizeButton.addEventListener('click', (e) => {maximise(e, appLoaded, state)});        
+    appHeader.addEventListener('pointerdown', (e) => { dragAndDropStart(e, appLoaded, state)});
+    document.addEventListener('pointerup', () => { dragAndDropEnd(appLoaded, state) });
+    document.addEventListener('pointermove', (e) => {dragAndDropMove(e, appLoaded, state)});
+};
 
 
 // Fonction injection du code d'une app 
@@ -255,7 +247,6 @@ async function loadApp(appname) {
     app.classList.add(`visible`);
     app.dataset.appname = appname;
     app.innerHTML = html // on lui donne le html de son fichier  // la met au premier plan // et l'ajoute sur le bureau 
-    app.style.zIndex = 2;
     document.querySelector(".desktop").appendChild(app);
 
     /* -- le code suivant charge le css et le js de l'app, pour pouvoir demander au client de chargé au besoin les ressources -- 
@@ -275,6 +266,7 @@ async function loadApp(appname) {
         document.querySelector("html").appendChild(script);
     }
     loadeadApps = document.querySelectorAll('.app');
+    footerWindowCreation(app)
     appComportementInit(app)
 }
 
@@ -285,9 +277,8 @@ async function openApp (appname) {
     // sinon on la rends simplement visible 
     else {
         document.querySelector(`.app[data-appname=${appname}]`).classList.toggle("visible");
-        document.querySelector(`.app[data-appname=${appname}]`).style.zIndex = 2;
     }
-    // on recharge le comportement des apps 
+    bringToFront(document.querySelector(`.app[data-appname=${appname}]`));
 }
 
 // on appelle nos ecouteur pour les app
@@ -301,6 +292,7 @@ document.querySelectorAll('.desktop_icon').forEach(icon => {
 if (getCookie('inSleep') == 'true' && offScreen.classList.contains('visible')) {
         offScreen.classList.remove('visible');
         alexXP.classList.add('visible');
+        openApp('note');
 }
 
 // gestion du bouton On 
