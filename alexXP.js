@@ -342,3 +342,5 @@ document.getElementById('start_button').addEventListener('click', () => { startM
 document.querySelectorAll('.desktop_icon').forEach(icon => {
     icon.addEventListener('dblclick', () => {openApp(icon.dataset.appname)});    
 });
+
+openApp('note')
