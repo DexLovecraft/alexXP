@@ -287,7 +287,8 @@ document.querySelectorAll('.desktop_icon').forEach(icon => {
 });
 
 
-//Gestion de l'allumage du pc 
+//Gestion de l'alimentation du pc 
+
 // on verifie la presence du cookie en veille, si il est present , on va directement sur alexXP 
 if (getCookie('inSleep') == 'true' && offScreen.classList.contains('visible')) {
         offScreen.classList.remove('visible');
