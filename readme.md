@@ -142,7 +142,7 @@ L'approche utilisée est une approche de *Single Page Application*, permettant d
 
 Les images ont été compressées puis converties en *WebP*, seuls les SVG diffèrent de cette méthode.  
 
-Site actuellment heberger et mis en ligne via github pages 
+Site actuellement heberger et mis en ligne via github pages 
 
 ------------------------------------------------
 ------------------------------------------------
