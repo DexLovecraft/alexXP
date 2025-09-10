@@ -49,7 +49,7 @@ Voici le schéma :
  │ // dossier général d’assets  
  │── /img  
  │── /sound
-
+```
 
 Le corps logique se base sur cette architecture.  
 Par exemple pour créer une nouvelle application, comme le Simon :  
