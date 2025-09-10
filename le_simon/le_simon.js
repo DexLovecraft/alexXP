@@ -15,6 +15,7 @@ difficultyButtons.forEach(button => {
         setTimeout(() => {
           button.classList.toggle('button--press')
           difficultySections.forEach(section => {
+            document.querySelector(".le_simon_main .games").classList.add('visible')
               if (section.classList.contains(button.id)) document.querySelector(`.${button.id}`).classList.add('visible');
               else section.classList.remove('visible');
           })
@@ -26,6 +27,7 @@ difficultyButtons.forEach(button => {
 document.querySelectorAll('.simon_back').forEach(back => {
     back.addEventListener('click',() => {
         difficultySections.forEach(section => {
+            document.querySelector(".le_simon_main .games").classList.remove('visible')
             if (section.classList.contains('difficulty')) section.classList.add('visible');
             else section.classList.remove('visible');
         });
@@ -138,7 +140,7 @@ const loseEasy = () => {
     userSequenceInputEasy = []
    sequenceAnswerEasy = []
    if(scoreEasy > highscore){
-      highscore = highscoreEasy
+      highscore = scoreEasy
    }
    scoreEasy = 0 
    numberOfsequenceEasy = 0
@@ -334,7 +336,7 @@ const loseMedium = () => {
     userSequenceInputMedium = []
    sequenceAnswerMedium = []
    if(scoreMedium > highscore){
-      highscore = highscoreMedium
+      highscore = scoreMedium
    }
    scoreMedium = 0 
    numberOfsequenceMedium = 0
@@ -421,9 +423,9 @@ const eventRemoverMedium = () => {
 
 // Affiche le score
 const scoreDisplayMedium = () => {
-  document.getElementsByClassName('score__number')[1].innerHTML = scoreMedium
-  document.getElementsByClassName('step__number')[1].innerHTML = numberOfsequenceMedium
-  document.getElementsByClassName('highscore__number')[1].innerHTML = highscore
+  document.getElementsByClassName('score__number')[0].innerHTML = scoreMedium
+  document.getElementsByClassName('step__number')[0].innerHTML = numberOfsequenceMedium
+  document.getElementsByClassName('highscore__number')[0].innerHTML = highscore
 } 
 
 // lance une nouvelle partie 
@@ -533,7 +535,7 @@ const loseHard = () => {
     userSequenceInputHard = []
    sequenceAnswerHard = []
    if(scoreHard > highscore){
-      highscore = highscoreHard
+      highscore = scoreHard
    }
    scoreHard = 0 
    numberOfsequenceHard = 0
@@ -620,9 +622,9 @@ const eventRemoverHard = () => {
 
 // Affiche le score
 const scoreDisplayHard = () => {
-  document.getElementsByClassName('score__number')[2].innerHTML = scoreHard
-  document.getElementsByClassName('step__number')[2].innerHTML = numberOfsequenceHard
-  document.getElementsByClassName('highscore__number')[2].innerHTML = highscore
+  document.getElementsByClassName('score__number')[0].innerHTML = scoreHard
+  document.getElementsByClassName('step__number')[0].innerHTML = numberOfsequenceHard
+  document.getElementsByClassName('highscore__number')[0].innerHTML = highscore
 } 
 
 // lance une nouvelle partie 
