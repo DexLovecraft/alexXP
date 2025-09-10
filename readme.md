@@ -3,7 +3,7 @@ Projet AlexXP - Documentation Technique
 
 # 📑 Table des matières
 1. [Introduction](#1-introduction)
-2. [Fichiers](#21-architecture) 
+2. [Fichiers](#21-architecture)         
 2.1 [Architecture](#21-architecture)  
 2.2 [Arborescence](#22-arborescence)  
 3. [Technologies](#3-technologies)  
