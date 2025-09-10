@@ -32,6 +32,7 @@ L'architecture du projet a été pensée pour la modularité et l'optimisation.
 
 Voici le schéma :  
 
+```
 /alexXP  
  │ // code de "l'os"  
  │── index.html  
@@ -47,7 +48,8 @@ Voici le schéma :
  │  
  │ // dossier général d’assets  
  │── /img  
- │── /sound  
+ │── /sound
+
 
 Le corps logique se base sur cette architecture.  
 Par exemple pour créer une nouvelle application, comme le Simon :  
@@ -59,6 +61,7 @@ Le Simon est implémenté dans l'OS. Et la structure, le style et le script sero
 ## 2.2. Arborescence
 Voici l'arborescence actuelle du projet.  
 
+```
 /alexXP  
  │── index.html  
  │── style.css  
@@ -117,6 +120,7 @@ Voici l'arborescence actuelle du projet.
  │
  │── /img  
  │── /sound  
+ ```
 
 ------------------------------------------------
 ------------------------------------------------
