@@ -234,11 +234,18 @@ const appComportementInit = (appLoaded) => {// pour chaque app on  :
 
 // Fonction injection du code d'une app 
 async function loadApp(appname) {
-
     const filePath = `./${appname}/${appname}`
     const resp = await fetch( `${filePath}.html`); // on va chercher l'app 
     if (!resp.ok) throw new Error('Impossible de charger le site');
     const html = await resp.text();
+
+    //si l'app a un css on le charge en premier pour evitez les artefact visuel 
+    if (!document.querySelector(`link[href="${filePath}.css]`) && await filePathExists(`${filePath}.css`)) {
+        const style = document.createElement('link');
+        style.rel = 'stylesheet'
+        style.href = `${filePath}.css`;
+        document.querySelector('head').appendChild(style)
+    }
 
     // on creer l'app on lui donne dynamiquement les class et l'attribut data,
     const app = document.createElement('div'); 
@@ -248,23 +255,14 @@ async function loadApp(appname) {
     app.dataset.appname = appname;
     app.innerHTML = html // on lui donne le html de son fichier  // la met au premier plan // et l'ajoute sur le bureau 
     document.querySelector(".desktop").appendChild(app);
-
-    /* -- le code suivant charge le css et le js de l'app, pour pouvoir demander au client de chargé au besoin les ressources -- 
-     on verifie 1. si un lien vers le css / js de l'app qu'on ouvre est present 
-     2. si le fichier existe 
-     si il existe et n'est pas present, on creer une balsie link / script et l'ajoute au dom 
-     */
-    if (!document.querySelector(`link[href="${filePath}.css]`) && await filePathExists(`${filePath}.css`)) {
-        const style = document.createElement('link');
-        style.rel = 'stylesheet'
-        style.href = `${filePath}.css`;
-        document.querySelector('head').appendChild(style)
-    }
+    
+    // si l'app a un js on le charge apres l'app pour eviter les bug lier a la non existence des element du dom
     if (!document.querySelector(`script[src="${filePath}.js]`) && await filePathExists(`${filePath}.js`)){
         const script = document.createElement('script');
         script.src = `${filePath}.js`;
         document.querySelector("html").appendChild(script);
     }
+
     loadeadApps = document.querySelectorAll('.app');
     footerWindowCreation(app)
     appComportementInit(app)
