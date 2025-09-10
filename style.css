@@ -470,9 +470,9 @@ div.app_maximized{
 }
 @media (max-height : 600px) {
   .viewport{
-    width:90vw;                 
-    height:90vh;                 
-    max-width:calc(90vh * 16 / 9);   
-    max-height:calc(90vw * 9 / 16); 
+    width:85vw;                 
+    height:85vh;                 
+    max-width:calc(85vh * 16 / 9);   
+    max-height:calc(85vw * 9 / 16); 
   } 
 }
