@@ -96,7 +96,7 @@ const altitudeConversion = (e, type) => {
 const speedConversion = (e, type) => {
     switch (type) {
         case 'knots' :
-            speedMetricInput.value = e.target.value/1.944.toFixed(0)
+            speedMetricInput.value = (e.target.value/1.944).toFixed(0)
             break;
         case 'meter' : 
             let speed = e.target.value*1.944
@@ -107,7 +107,7 @@ const speedConversion = (e, type) => {
 
 // Logique de la section QFE 
 const QFEOperation = () => {
-    QFEInput.value = (QNHInput.value-(QFEaltitudeInput.value*0.3048)/9.3).toFixed(0)
+    QFEInput.value = (QNHInput.value - QFEaltitudeInput.value / 27).toFixed(0);
 }
 
 // Logique de la section Mach  
