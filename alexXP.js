@@ -271,11 +271,12 @@ async function loadApp(appname) {
 // Gestion des icon du bureau 
 async function openApp (appname) {
     //si l'app n'a jamais été chargé , on load app 
-    if (!document.querySelector(`.app[data-appname=${appname}]`)) await loadApp(appname);       
+    if (!document.querySelector(`.app[data-appname=${appname}]`)) await loadApp(appname);      
     // sinon on la rends simplement visible 
     else {
         document.querySelector(`.app[data-appname=${appname}]`).classList.toggle("visible");
     }
+    footerWindowCreation(document.querySelector(`.app[data-appname=${appname}]`));
     bringToFront(document.querySelector(`.app[data-appname=${appname}]`));
 }
 
