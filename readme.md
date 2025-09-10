@@ -9,7 +9,7 @@ Projet AlexXP - Documentation Technique
 3. [Technologies](#3-technologies)  
 4. [Datation du code](#4-datation-du-code)  
 5. [Fonctionnalités](#5-fonctionnalités)
-6. [Analyse](#61-points-forts) 
+6. [Analyse](#61-points-forts)     
 6.1 [Points Forts ](#61-points-forts)  
 6.2 [Pistes d'amélioration](#62-pistes-damélioration)  
 7. [Crédits](#7-crédits)  
