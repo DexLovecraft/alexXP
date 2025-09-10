@@ -3,13 +3,13 @@ Projet AlexXP - Documentation Technique
 
 # 📑 Table des matières
 1. [Introduction](#1-introduction)  
-2.1 [Architecture](#21-architecture)  
-2.2 [Arborescence](#22-arborescence)  
+2. 1 [Architecture](#21-architecture)  
+2. 2 [Arborescence](#22-arborescence)  
 3. [Technologies](#3-technologies)  
 4. [Datation du code](#4-datation-du-code)  
 5. [Fonctionnalités](#5-fonctionnalités)  
-6.1 [Points Forts ](#61-points-forts)  
-6.2 [Pistes d'amélioration](#62-pistes-damélioration)  
+6. 1 [Points Forts ](#61-points-forts)  
+6. 2 [Pistes d'amélioration](#62-pistes-damélioration)  
 7. [Crédits](#7-crédits)  
 
 ------------------------------------------------
