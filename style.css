@@ -171,14 +171,12 @@ body::after{
   text-overflow: ellipsis;
 }
 .app_header_nav {
-  opacity: 1;
-  height: 22px;
-  display: flex;
-  -moz-box-align: center;
-  align-items: center;
-  margin-top: 2px;
+  width: 70px;
+  height: 25px;
   margin-right: 1px;
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 div.app_maximized{
@@ -190,8 +188,6 @@ div.app_maximized{
 
 .app_header_nav
 .header_button {
-  margin: auto 1px auto 1px ;
-  position: relative;
   width: 22px;
   height: 22px;
   border: 1px solid rgb(255, 255, 255);
