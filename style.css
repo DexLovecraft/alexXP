@@ -50,13 +50,13 @@ div.visible{
   width: 100%;
   height: 100%;
   display: none;
-  background:url(./img/blue_screen.png) center center / cover no-repeat fixed; 
+  background:url(./img/blue_screen.webp) center center / cover no-repeat fixed; 
 }
 /* Ecran eteints */
 .off_screen {
   height: 100%;
   width: 100%; 
-  background: url(./img/off_screen.jpg) center center / cover no-repeat fixed;
+  background: url(./img/off_screen.webp) center center / cover no-repeat fixed;
   display: none;
 }
 .power-button {
@@ -99,7 +99,7 @@ div.visible{
   display: none;
   height: 100%;
 
-  background:url(./img/bliss.jpeg) center center / cover no-repeat fixed;
+  background:url(./img/bliss.webp) center center / cover no-repeat fixed;
 }
 body::before,
 body::after{
