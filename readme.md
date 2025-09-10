@@ -57,8 +57,8 @@ Le corps logique se base sur cette architecture.
 Par exemple pour créer une nouvelle application, comme le Simon :  
 on code sa structure le_simon.html, son style le_simon.css, et sa logique le_simon.js  
 on met cela dans un dossier le_simon.  
-On crée une desktop icon avec un attribut HTML data_appname le_simon.  
-Le Simon est implémenté dans l'OS. Et la structure, le style et le script seront chargés au besoin de l’utilisateur via l'icône.  
+On crée une desktop icon avec un attribut HTML data-appname le_simon.  
+Le Simon est implémenté dans l'OS.  la structure, le style et le script seront chargés au besoin de l’utilisateur via l'icône.  
 
 ## 2.2. Arborescence
 Voici l'arborescence actuelle du projet.  
