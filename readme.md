@@ -15,6 +15,7 @@ Projet AlexXP - Documentation Technique
 7. [Crédits](#7-crédits)  
 
 ------------------------------------------------
+
 ## 1. Introduction
 
 Ce projet est un portfolio interactif, sous forme d'une recréation d'une version HTML / CSS / JS de Windows XP.  
