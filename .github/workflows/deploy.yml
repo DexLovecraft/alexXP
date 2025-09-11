@@ -28,7 +28,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.1.0
         env:
           SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
-          ARGS: "-avz --delete"
+          ARGS: "-avz --progress --delete"
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: deploy
