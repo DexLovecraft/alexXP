@@ -30,8 +30,4 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: deploy
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: "dist/"
-          target: "/srv/containers/frontend/alexXP/html"
-          overwrite: true
-          tar_exec: false
-          rm: false
+          source: "dist/*"
