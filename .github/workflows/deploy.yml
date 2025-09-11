@@ -33,4 +33,6 @@ jobs:
           source: "dist/"                      
           target: "/srv/containers/frontend/alexXP/html"
           strip_components: 1                  
-          overwrite: true                      
+          overwrite: true 
+          tar_exec: true
+          rm: true                     
