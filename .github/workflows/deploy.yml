@@ -1,9 +1,9 @@
-name: Deploy Portfolio
+name: Deploy CI/CD portfolio
 
 on:
   push:
     branches:
-      - prod   # ✅ déclenche uniquement quand on push sur prod
+      - prod   # Se lance uniquement sur prod
 
 jobs:
   build-and-deploy:
@@ -21,18 +21,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build project with Gulp
         run: npm run build
- 
+
       - name: Deploy to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.VPS_HOST }}        
-          username: deploy                     
-          key: ${{ secrets.VPS_SSH_KEY }}      
-          source: "dist/"                      
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "dist/"
           target: "/srv/containers/frontend/alexXP/html"
-          strip_components: 1                  
-          overwrite: true 
+          pre_cmd: "rm -rf /srv/containers/frontend/alexXP/html/*"
           tar_exec: true
-          rm: true                     
+          rm: true
+          overwrite: true
