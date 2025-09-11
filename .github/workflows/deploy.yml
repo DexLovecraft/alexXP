@@ -32,7 +32,6 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "dist/"
           target: "/srv/containers/frontend/alexXP/html"
-          pre_cmd: "rm -rf /srv/containers/frontend/alexXP/html/*"
-          tar_exec: true
-          rm: true
           overwrite: true
+          tar_exec: false
+          rm: false
