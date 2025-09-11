@@ -30,5 +30,18 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: deploy
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: "./dist"
+          source: "./dist/*"
           target: "/srv/containers/frontend/alexXP/html"
+
+      - name: Uncompress tar on VPS
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /srv/containers/frontend/alexXP/html
+            # Décompresse tous les .tar.gz trouvés
+            for archive in *.tar.gz; do
+              [ -f "$archive" ] && tar -xzf "$archive" && rm "$archive"
+            done
