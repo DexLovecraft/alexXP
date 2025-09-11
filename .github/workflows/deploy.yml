@@ -25,11 +25,10 @@ jobs:
         run: npm run build
 
       - name: Deploy to VPS
-        uses: easingthemes/ssh-deploy@v5.1.0
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
-          ARGS: "-avz --progress --delete"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.VPS_HOST }}
-          REMOTE_USER: deploy
-          TARGET: "/srv/containers/frontend/alexXP/html"
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "dist/"
+          target: "/srv/containers/frontend/alexXP/html"
