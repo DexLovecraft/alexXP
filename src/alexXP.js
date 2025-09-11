@@ -1,7 +1,7 @@
 /*
     ce fichier contient toute la logique de alexXP, 
     l'allumage, l'ouverture et la fermeture d'application , le comportement des fenetre, gestion des evenement aleatoire ... 
-    La logique des application est codé dans leus propre fichier (ex : /le_simon/le_simon.js)
+    La logique des application est codé dans leus propre fichier (ex : ./le_simon/le_simon.js)
 */
 
 // requete pour verifier qu'un fichier existe 
@@ -61,7 +61,7 @@ const alexXP = document.querySelector('.alexXP');
 const offScreen = document.querySelector('.off_screen');
 const blueScreen = document.querySelector('.blue_screen');
 const viewport = document.querySelector('.viewport');
-const bootupSound = new Audio('/sound/bootup_sound.mp3');
+const bootupSound = new Audio('./sound/bootup_sound.mp3');
 bootupSound.volume = 0.25
 
 

@@ -13,8 +13,8 @@ let historyLengthOld = historyLength - 1
 async function loadSite(url , websiteName, pages) {
   // en premier lieu on nettoie le navigateur 
   document.querySelector('.internet_function_bar_button-back').removeEventListener('click', goBack)
-  if (document.querySelector(`link[href*="/internet/website/"]`)){
-      document.querySelector(`link[href*="/internet/website/"]`).remove()
+  if (document.querySelector(`link[href*="./internet/website/"]`)){
+      document.querySelector(`link[href*="./internet/website/"]`).remove()
   }  
   document.querySelector('.internet_content').innerHTML = '';
 
@@ -29,10 +29,10 @@ async function loadSite(url , websiteName, pages) {
   if (!resp.ok) throw new Error('Impossible de charger le site');
   const html = await resp.text();
   document.querySelector('.internet_content').innerHTML = html;
-  if (!document.querySelector(`link[href="/internet/website/${websiteName}/${websiteName}.css"]`)) {
+  if (!document.querySelector(`link[href="./internet/website/${websiteName}/${websiteName}.css"]`)) {
     const style = document.createElement('link');
     style.rel = 'stylesheet'
-    style.href = `/internet/website/${websiteName}/${websiteName}.css`;
+    style.href = `./internet/website/${websiteName}/${websiteName}.css`;
     document.querySelector('head').appendChild(style)
   } 
   
@@ -67,9 +67,9 @@ const goBackButton = () => {
 //fonction de gestion de l'historique du navigateur au click
 const goBack = () => {
     // si on est pas sur la homepage, et qu'un fichier css est chargé : 
-    if (document.querySelector(`link[href*="/internet/website/"]`) && historyLength >= 1) {
+    if (document.querySelector(`link[href*="./internet/website/"]`) && historyLength >= 1) {
       // on nettoie
-      document.querySelector(`link[href*="/internet/website/"]`).remove();
+      document.querySelector(`link[href*="./internet/website/"]`).remove();
 
       // on note la taille avant modification , on suprime un element , on note la taille apres modification.
       //  Nécessaire dans loadSite pour verifié si on découvre une page ou si on reviens sur une pages
@@ -84,4 +84,4 @@ const goBack = () => {
   } 
 
 // on charge la page par default Home 
-loadSite('/internet/website/home/home.html', 'home')
+loadSite('./internet/website/home/home.html', 'home')

@@ -145,7 +145,7 @@ QFEaltitudeInput.addEventListener('input', ()=>{ if (QNHInput && QFEaltitudeInpu
     
     
 // declaration pour easter egg ( a380.png qui passe en faisant un bruit apres 5 clique sur l'image dans .altitude )
-var takeoff_sound = new Audio('/sound/takeoff_sound.mp3');
+var takeoff_sound = new Audio('./sound/takeoff_sound.mp3');
 let clickcount = 0
 
 //fonction easter egg
