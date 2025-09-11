@@ -19,7 +19,7 @@ Projet AlexXP - Documentation Technique
 ## 1. Introduction
 
 Ce projet est un portfolio interactif, sous forme d'une recréation d'une version HTML / CSS / JS de Windows XP.  
-Accessible à ce lien : https://dexlovecraft.github.io/alexXP/  
+Accessible à ce lien : https://portfolio.alexbalmes.dev  
 Il me sert de vitrine technologique pour montrer aux recruteurs mes compétences, et certains de mes anciens projets.  
 Pour les RH l'application note est ouverte par défaut, présentant le projet de manière simple.  
 Pour les directeurs techniques un lien redirige vers le repo git du projet et ce README.  
