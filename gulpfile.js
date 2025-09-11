@@ -26,11 +26,10 @@ function minifyHTML() {
 
 // Copier autres fichiers (images, icônes, etc.)
 function copyAssets() {
-  return src("src/**/*.{png,jpg,jpeg,gif,svg,ico,webp}")
+  return src("src/**/*.{png,jpg,jpeg,gif,svg,ico,webp}", { encoding: false })
     .pipe(dest("dist"));
 }
 
-// Définir la tâche build
 exports.build = series(
-  parallel(minifyCSS, minifyJS, minifyHTML, copyAssets)
+  parallel(minifyCSS, minifyJS, minifyHTML, copyAssets),
 );
