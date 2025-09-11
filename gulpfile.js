@@ -26,7 +26,7 @@ function minifyHTML() {
 
 // Copier autres fichiers (images, icônes, etc.)
 function copyAssets() {
-  return src("src/**/*.{png,jpg,jpeg,gif,svg,ico,webp}", { encoding: false })
+  return src("src/**/*.{png,jpg,jpeg,gif,svg,ico,webp,mp3,pdf}", { encoding: false })
     .pipe(dest("dist"));
 }
 

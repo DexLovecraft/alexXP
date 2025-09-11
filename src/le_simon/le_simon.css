@@ -11,7 +11,7 @@
 }
 
 .logo {
-    height: 60%;              
+    width: 80%;              
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -203,10 +203,9 @@
     justify-content: center;
     text-align: center;
     margin: 20px auto auto auto;
-    font-size: 1.2rem;
 }
 @media (min-width: 1024px) {
-    .info { flex-direction: row; font-size: 1.7rem; }
+    .info { flex-direction: row; }
 }
 .info__child { padding: 0 20px; }
 @media (min-width: 1024px) {

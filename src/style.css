@@ -8,7 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: clamp(0px, calc(0px + 0.681vw), 38px);
+  font-size: clamp(2px,calc(2px + .681vw),38px);
   box-sizing: border-box;
   margin: 0;
 }
@@ -402,12 +402,11 @@ div.app_maximized{
 }
 
 .footer .footer_items.left .footer_icon {
-  height: 47%;
+  height: 80%;
   aspect-ratio: 1;
   margin-right: 5px;
   border-radius: 2px;
   object-fit: cover;
-  border: 2px solid rgba(222, 222, 222, 0.8);
 }
 
 .footer_items.right{
