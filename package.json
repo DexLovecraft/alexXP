@@ -1,0 +1,27 @@
+{
+  "name": "alexxp",
+  "version": "1.0.0",
+  "description": "Projet AlexXP - Portfolio frontend",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DexLovecraft/alexXP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DexLovecraft/alexXP/issues"
+  },
+  "homepage": "https://github.com/DexLovecraft/alexXP#readme",
+  "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-terser": "^2.1.0"
+  }
+}
