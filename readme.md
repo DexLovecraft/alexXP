@@ -2,12 +2,14 @@
 Projet AlexXP - Documentation Technique
 
 # 📑 Table des matières
-1. [Introduction](#1-introduction)  
+1. [Introduction](#1-introduction)
+2. [Fichiers](#21-architecture)         
 2.1 [Architecture](#21-architecture)  
 2.2 [Arborescence](#22-arborescence)  
 3. [Technologies](#3-technologies)  
 4. [Datation du code](#4-datation-du-code)  
-5. [Fonctionnalités](#5-fonctionnalités)  
+5. [Fonctionnalités](#5-fonctionnalités)
+6. [Analyse](#61-points-forts)     
 6.1 [Points Forts ](#61-points-forts)  
 6.2 [Pistes d'amélioration](#62-pistes-damélioration)  
 7. [Crédits](#7-crédits)  
@@ -32,6 +34,7 @@ L'architecture du projet a été pensée pour la modularité et l'optimisation.
 
 Voici le schéma :  
 
+```
 /alexXP  
  │ // code de "l'os"  
  │── index.html  
@@ -47,18 +50,20 @@ Voici le schéma :
  │  
  │ // dossier général d’assets  
  │── /img  
- │── /sound  
+ │── /sound
+```
 
 Le corps logique se base sur cette architecture.  
 Par exemple pour créer une nouvelle application, comme le Simon :  
 on code sa structure le_simon.html, son style le_simon.css, et sa logique le_simon.js  
 on met cela dans un dossier le_simon.  
-On crée une desktop icon avec un attribut HTML data_appname le_simon.  
-Le Simon est implémenté dans l'OS. Et la structure, le style et le script seront chargés au besoin de l’utilisateur via l'icône.  
+On crée une desktop icon avec un attribut HTML data-appname le_simon.  
+Le Simon est implémenté dans l'OS.  la structure, le style et le script seront chargés au besoin de l’utilisateur via l'icône.  
 
 ## 2.2. Arborescence
 Voici l'arborescence actuelle du projet.  
 
+```
 /alexXP  
  │── index.html  
  │── style.css  
@@ -117,6 +122,7 @@ Voici l'arborescence actuelle du projet.
  │
  │── /img  
  │── /sound  
+ ```
 
 ------------------------------------------------
 ------------------------------------------------
@@ -142,7 +148,7 @@ L'approche utilisée est une approche de *Single Page Application*, permettant d
 
 Les images ont été compressées puis converties en *WebP*, seuls les SVG diffèrent de cette méthode.  
 
-Site actuellment heberger et mis en ligne via github pages 
+Site actuellement heberger et mis en ligne via github pages 
 
 ------------------------------------------------
 ------------------------------------------------
