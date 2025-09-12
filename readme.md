@@ -1,160 +1,230 @@
+
 ------------------------------------------------
 Projet AlexXP - Documentation Technique
 
 # 📑 Table des matières
-1. [Introduction](#1-introduction)
-2. [Fichiers](#21-architecture)         
-2.1 [Architecture](#21-architecture)  
-2.2 [Arborescence](#22-arborescence)  
-3. [Technologies](#3-technologies)  
-4. [Datation du code](#4-datation-du-code)  
-5. [Fonctionnalités](#5-fonctionnalités)
-6. [Analyse](#61-points-forts)     
-6.1 [Points Forts ](#61-points-forts)  
-6.2 [Pistes d'amélioration](#62-pistes-damélioration)  
-7. [Crédits](#7-crédits)  
+1. [Introduction](#1-introduction)  
+2. [Technologies](#2-technologies)  
+3. [Front-End](#31-architecture)         
+   3.1. [Architecture](#31-architecture)  
+   3.2. [Arborescence](#32-arborescence)  
+4. [Ops](#41-deploiement)  
+   4.1. [Déploiement](#41-deploiement)  
+   4.2. [Serveur](#42-serveur)  
+5. [Datation du code](#5-datation-du-code)  
+6. [Fonctionnalités](#6-fonctionnalités)  
+7. [Analyse](#71-points-forts)     
+   7.1. [Points forts](#71-points-forts)  
+   7.2. [Pistes d'amélioration](#72-pistes-damelioration)  
+8. [Crédits](#8-crédits)  
 
 ------------------------------------------------
 
 ## 1. Introduction
 
-Ce projet est un portfolio interactif, sous forme d'une recréation d'une version HTML / CSS / JS de Windows XP.  
+Ce projet est un portfolio interactif, sous la forme d’une recréation de Windows XP en **HTML / CSS / JS**.  
 Accessible à ce lien : https://portfolio.alexbalmes.dev  
-Il me sert de vitrine technologique pour montrer aux recruteurs mes compétences, et certains de mes anciens projets.  
-Pour les RH l'application note est ouverte par défaut, présentant le projet de manière simple.  
-Pour les directeurs techniques un lien redirige vers le repo git du projet et ce README.  
+Il me sert de vitrine technologique pour présenter mes compétences aux recruteurs, ainsi que certains de mes anciens projets.  
 
-Cette documentation a été mise à jour le 10/09/2025.  
+- Pour les RH : l’application *note* est ouverte par défaut, présentant le projet de manière simple.  
+- Pour les directeurs techniques : un lien redirige vers le repo GitHub du projet et ce README.  
+
+Cette documentation a été mise à jour le 12/09/2025.  
 
 ------------------------------------------------
+## 2. Technologies  
+
+La stack technique est :  
+
+- **Front-end**  
+  - HTML5  
+  - CSS3  
+  - JavaScript (ES6+)  
+
+- **Déploiement (CI/CD)**  
+  - Node.js  
+  - Gulp  
+  - GitHub Actions  
+
+- **Serveur (Docker)**  
+  - **Proxy & SSL**  
+    - nginx-proxy (reverse proxy & routage)  
+    - acme-companion (certificats SSL Let's Encrypt automatisés)  
+  - **Site web**  
+    - nginx:alpine (serveur statique léger)  
+  - **Monitoring**  
+    - Grafana (visualisation)  
+    - Prometheus (collecte de métriques)  
+    - blackbox-exporter  
+
+**Front :**  
+L’approche utilisée est celle d’une *Single Page Application*, ce qui permet de ne jamais rafraîchir la page entière.  
+Les applications (Convertisseur, CV, Internet, etc.) et sites web (Dex's Gallery, Oh My Food, Booki) sont accessibles directement dans la même page, reproduisant des interactions de type "OS".  
+
+*Lazy loading* : les applications et sites web sont chargés dynamiquement via `fetch()` uniquement lorsqu’ils sont demandés, afin de réduire le temps de chargement initial et d’optimiser les performances.  
+
+Les images ont été compressées puis converties en *WebP* (hors SVG).  
+
+**Déploiement :**  
+CI/CD via **GitHub Actions**. Les fichiers sont traités avec **Gulp**, puis envoyés par SSH vers un utilisateur Linux aux droits limités.  
+Le code est développé sur `main` et déployé sur la branche `prod`.  
+
+**Serveur :**  
+L’architecture serveur est simple :  
+- Un **proxy** fournit les certificats et gère le routage vers les sites.  
+- Un **conteneur dédié** sert le portfolio.  
+- Un autre conteneur effectue le **monitoring** des informations de base.  
+
+La logique est spécialisée et compartimentée, mais la portabilité est légèrement réduite par ce processus.  
+
 ------------------------------------------------
+## 3. Front-end  
+### 3.1. Architecture  
 
-## 2.1. Architecture 
+L’architecture du front a été pensée pour la modularité et l’optimisation.  
+Voici le schéma : 
+```
+/root  
+  │── /src  
+	 │ // code de "l'os"  
+	 │── index.html  
+	 │── style.css  
+	 │── script.js 
+	 │ 
+	 │ // Dossier des applications  
+	 │── /[app]  
+	 │    │── [app].html  
+	 │    │── [app].css  
+	 │    │── [app].js  
+	 │    │── /img
+	 │    │── /file
+	 │  
+	 │ // dossier général d’assets  
+	 │── /img  
+	 │── /sound
+```
 
-L'architecture du projet a été pensée pour la modularité et l'optimisation.  
 
-Voici le schéma :  
+Cette architecture, si elle est respectée, permet d’implémenter une nouvelle application `[app]` simplement :  
+- Créer les fichiers `[app]` et les placer dans un dossier du même nom.  
+- Ajouter une icône sur le bureau dans `index.html` avec un attribut `data-appname="[app]"`.  
+
+L’application est alors intégrée, et le comportement de sa fenêtre est automatiquement pris en charge sans modification du script principal. Il ne reste plus qu’à coder son contenu.  
+
+### 3.2. Arborescence  
+
+Voici l’arborescence actuelle du front-end :  
+
 
 ```
-/alexXP  
- │ // code de "l'os"  
- │── index.html  
- │── style.css  
- │── script.js  
- │ // Dossier des applications  
- │── /app  
- │    │── app.html  
- │    │── app.css  
- │    │── app.js  
- │    │── /app_img
- │    │── /app_file
- │  
- │ // dossier général d’assets  
- │── /img  
- │── /sound
-```
-
-Le corps logique se base sur cette architecture.  
-Par exemple pour créer une nouvelle application, comme le Simon :  
-on code sa structure le_simon.html, son style le_simon.css, et sa logique le_simon.js  
-on met cela dans un dossier le_simon.  
-On crée une desktop icon avec un attribut HTML data-appname le_simon.  
-Le Simon est implémenté dans l'OS.  la structure, le style et le script seront chargés au besoin de l’utilisateur via l'icône.  
-
-## 2.2. Arborescence
-Voici l'arborescence actuelle du projet.  
-
-```
-/alexXP  
- │── index.html  
- │── style.css  
- │── alexXP.js  
- │  
- │── /note  
- │    │── note.html  
- │    │── note.css  
- │  
- │── /cv  
- │    │── cv.html  
- │    │── cv.css  
- │    │── cv_alex_balmes.pdf  
- │  
- │── /convertisseur  
- │    │── convertisseur.html  
- │    │── convertisseur.css  
- │    │── convertisseur.js  
- │    │── /img 
- │  
- │── /le_simon  
- │    │── le_simon.html  
- │    │── le_simon.css  
- │    │── le_simon.js 
- │    │── /img  
- │  
- │── /internet  
- │    │── internet.html  
- │    │── internet.css  
- │    │── internet.js  
- │    │── /img 
- │    │── /website  
- │          │── booki  
- │          │     │── booki.html  
- │          │     │── booki.css  
- │          │     │── /img  
- │          │  
- │          │── ohmyfood  
- │          │     │── ohmyfood.html  
- │          │     │── ohmyfood.css  
- │          │     │── /pages  
- │          │     │    │── delice_menu.html  
- │          │     │    │── francaise_menu.html  
- │          │     │    │── note_menu.html  
- │          │     │    │── palette_menu.html  
- │          │     │  
- │          │     │── /img  
- │          │  
- │          │── gallery  
- │          │     │── gallery.html  
- │          │     │── gallery.css  
- │          │     │── /img  
- │          │  
- │          │── home  
- │                │── home.html            
- │
- │── /img  
- │── /sound  
+/root
+  │──/src   
+	 │── index.html  
+	 │── style.css  
+	 │── alexXP.js  
+	 │  
+	 │── /note  
+	 │    │── note.html  
+	 │    │── note.css  
+	 │  
+	 │── /cv  
+	 │    │── cv.html  
+	 │    │── cv.css  
+	 │    │── cv_alex_balmes.pdf  
+	 │  
+	 │── /convertisseur  
+	 │    │── convertisseur.html  
+	 │    │── convertisseur.css  
+	 │    │── convertisseur.js  
+	 │    │── /img 
+	 │  
+	 │── /le_simon  
+	 │    │── le_simon.html  
+	 │    │── le_simon.css  
+	 │    │── le_simon.js 
+	 │    │── /img  
+	 │  
+	 │── /internet  
+	 │    │── internet.html  
+	 │    │── internet.css  
+	 │    │── internet.js  
+	 │    │── /img 
+	 │    │── /website  
+	 │          │── booki  
+	 │          │     │── booki.html  
+	 │          │     │── booki.css  
+	 │          │     │── /img  
+	 │          │  
+	 │          │── ohmyfood  
+	 │          │     │── ohmyfood.html  
+	 │          │     │── ohmyfood.css  
+	 │          │     │── /pages  
+	 │          │     │    │── delice_menu.html  
+	 │          │     │    │── francaise_menu.html  
+	 │          │     │    │── note_menu.html  
+	 │          │     │    │── palette_menu.html  
+	 │          │     │  
+	 │          │     │── /img  
+	 │          │  
+	 │          │── gallery  
+	 │          │     │── gallery.html  
+	 │          │     │── gallery.css  
+	 │          │     │── /img  
+	 │          │  
+	 │          │── home  
+	 │                │── home.html            
+	 │
+	 │── /img  
+	 │── /sound  
  ```
 
 ------------------------------------------------
+## 4. Ops  
+
+### 4.1. Déploiement  
+
+Le déploiement est mis en place en parallèle du dossier source, selon l’arborescence :  
+```
+/root
+  │── src/
+  │── .github/
+  │    │── workflows
+  │        │── deploy.yml
+  │
+  │── nodes_modules/
+  │── .gitignore
+  │── gulpfile.js
+  │── package.json
+  │── package-lock.json     
+```
+Le déploiement se déclenche automatiquement lors d’un push sur la branche `prod` du repository et suit les étapes suivantes :  
+
+1. Installation de **Node.js** et **Gulp**.  
+2. Exécution de `npm run build`, qui lance le `gulpfile`.  
+3. Minification des fichiers de code de `src/`, copie des assets, et génération d’un dossier `dist/`.  
+4. Connexion en SSH à l’utilisateur Linux `deploy` (droits limités) du serveur.  
+5. Dépôt du contenu de `dist/` dans `container/html/`, où écoute **nginx**.  
+
+### 4.2. Serveur  
+
+Le serveur est une **infrastructure conteneurisée sous Ubuntu, orchestrée avec Docker**.  
+Il repose sur trois groupes de conteneurs : deux nécessaires, et un utile.  
+
+- **Proxy & SSL (nécessaires)**  
+  - *nginx-proxy* : reverse proxy qui reçoit les requêtes entrantes (ports 80/443) et les redirige vers les bons services, notamment le conteneur du portfolio à l’adresse `portfolio.alexbalmes.dev`.  
+  - *acme-companion* : extension du proxy qui génère et renouvelle automatiquement les certificats SSL via *Let’s Encrypt*.  
+  - Ensemble, ils assurent le **routage** et la **sécurisation HTTPS** du site.  
+
+- **Site (nécessaire)**  
+  - *nginx:alpine* : conteneur léger qui héberge et sert le **front-end statique** (le projet AlexXP).  
+  - C’est ce service qui répond aux requêtes utilisateur après passage par le proxy.  
+
+- **Monitoring (utile)**  
+  - Stack basée sur Grafana et Prometheus.  
+  - Fournit une **surveillance continue** et facilite la maintenance.  
+
 ------------------------------------------------
-
-## 3. Technologies  
-
-La *stack technique* est :  
-
-- HTML 5 :  
-    Structure sémantique privilégiée.  
-- CSS 3 :  
-    Responsive fait intégralement grâce aux valeurs relatives, dans un conteneur obligatoirement en 16/9.  
-    Disposition des éléments faite en position, flexbox, et grid.  
-    Utilisation de keyframes.  
-- JavaScript ES6+  
-    Fonctions fléchées, const et let privilégiés.  
-    Logique OS pensée en modularité maximale.  
-    Code commenté.  
-
-L'approche utilisée est une approche de *Single Page Application*, permettant de ne jamais rafraîchir la page entière, et d’accéder aux applications dans la même page, permettant les interactions "OS".  
-
-*Lazy loading* : les applications (Convertisseur, CV, Internet, etc.) et sites web (Dex's Gallery, Oh My Food, Booki) sont chargés dynamiquement via `fetch()` uniquement lorsqu’ils sont demandés, afin de réduire le temps de chargement initial et optimiser les performances.  
-
-Les images ont été compressées puis converties en *WebP*, seuls les SVG diffèrent de cette méthode.  
-
-Site actuellement heberger et mis en ligne via github pages 
-
-------------------------------------------------
-------------------------------------------------
-
-## 4. Datation du code
+## 5. Datation du code
 
 Ce projet étant un portfolio, beaucoup de code a été récupéré d'anciens projets.  
 Les éléments récupérés sont : le Convertisseur, le Simon, Booki, Oh My Food, et Dex's Gallery.  
@@ -173,9 +243,8 @@ Le projet avait une architecture différente, j'ai dû le réadapter à la logiq
 Les autres éléments ont quant à eux été spécifiquement développés pour ce projet. Le développement d'AlexXP a commencé le `3 septembre 2025`.  
 
 ------------------------------------------------
-------------------------------------------------
 
-## 5. Fonctionnalités  
+## 6. Fonctionnalités  
 
 - *Gestion de l'alimentation du PC* :  
     * Démarrer, éteindre, et cookie "en veille" pour ne pas passer par l'étape démarrage à chaque visite / refresh.  
@@ -218,9 +287,8 @@ Les autres éléments ont quant à eux été spécifiquement développés pour c
     * Historique de navigation complet lors du clic sur retour.  
 
 ------------------------------------------------
-------------------------------------------------
 
-## 6.1 Points forts
+## 7.1 Points forts
 
 - *Modularité du système*  
     * Applications isolées dans leurs propres fichiers. Si correctement nommées, on crée l'icône avec un appname défini du même nom que le dossier et fichiers. Et ça fonctionne.  
@@ -239,7 +307,7 @@ Les autres éléments ont quant à eux été spécifiquement développés pour c
     * Utilisation de const et let.  
     * Découpage par fonctions explicites et spécialisées.  
 
-## 6.2. Pistes d'amélioration
+## 7.2. Pistes d'amélioration
 
 - Factorisation possible à plusieurs endroits.  
 - Réécrire le_simon.js, le code a été adapté mais il souffre du manque d'expérience à sa création.  
@@ -247,9 +315,8 @@ Les autres éléments ont quant à eux été spécifiquement développés pour c
 - Améliorer l'accessibilité via des balises aria.  
 
 ------------------------------------------------
-------------------------------------------------
 
-##  7. Crédits  
+##  8. Crédits  
 
 Certaines maquettes et assets (Booki, Oh My Food) m'ont été fournis par OpenClassrooms dans le cadre de mon diplôme de développeur web. https://openclassrooms.com/fr/  
 
