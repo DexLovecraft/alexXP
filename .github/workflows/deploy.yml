@@ -37,4 +37,5 @@ jobs:
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: deploy
+          REMOTE_PORT: ${{ secrets.VPS_PORT }}
           TARGET: "/srv/portfolio/html"
