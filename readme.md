@@ -1,6 +1,5 @@
 
 ------------------------------------------------
-
 Projet AlexXP - Documentation Technique
 
 # 📑 Table des matières
