@@ -2,6 +2,24 @@
 ------------------------------------------------
 Projet AlexXP - Documentation Technique
 
+# 📑 Table des matières
+1. [Introduction](#1-introduction)  
+2. [Technologies](#2-technologies)  
+3. [Front-End](#31-architecture)         
+   3.1. [Architecture](#31-architecture)  
+   3.2. [Arborescence](#32-arborescence)  
+4. [Ops](#41-deploiement)  
+   4.1. [Déploiement](#41-deploiement)  
+   4.2. [Serveur](#42-serveur)  
+5. [Datation du code](#5-datation-du-code)  
+6. [Fonctionnalités](#6-fonctionnalités)  
+7. [Analyse](#71-points-forts)     
+   7.1. [Points forts](#71-points-forts)  
+   7.2. [Pistes d'amélioration](#72-pistes-damelioration)  
+8. [Crédits](#8-crédits)  
+
+------------------------------------------------
+
 ## 1. Introduction
 
 Ce projet est un portfolio interactif, sous la forme d’une recréation de Windows XP en **HTML / CSS / JS**.  
@@ -65,7 +83,6 @@ La logique est spécialisée et compartimentée, mais la portabilité est légè
 
 L’architecture du front a été pensée pour la modularité et l’optimisation.  
 Voici le schéma : 
-
 ```
 /root  
   │── /src  
@@ -87,6 +104,7 @@ Voici le schéma :
 	 │── /sound
 ```
 
+
 Cette architecture, si elle est respectée, permet d’implémenter une nouvelle application `[app]` simplement :  
 - Créer les fichiers `[app]` et les placer dans un dossier du même nom.  
 - Ajouter une icône sur le bureau dans `index.html` avec un attribut `data-appname="[app]"`.  
@@ -96,6 +114,7 @@ L’application est alors intégrée, et le comportement de sa fenêtre est auto
 ### 3.2. Arborescence  
 
 Voici l’arborescence actuelle du front-end :  
+
 
 ```
 /root
@@ -157,14 +176,14 @@ Voici l’arborescence actuelle du front-end :
 	 │
 	 │── /img  
 	 │── /sound  
-```
+ ```
 
 ------------------------------------------------
 ## 4. Ops  
-### 4.1. Déploiement
+
+### 4.1. Déploiement  
 
 Le déploiement est mis en place en parallèle du dossier source, selon l’arborescence :  
-
 ```
 /root
   │── src/
@@ -178,7 +197,6 @@ Le déploiement est mis en place en parallèle du dossier source, selon l’arbo
   │── package.json
   │── package-lock.json     
 ```
-
 Le déploiement se déclenche automatiquement lors d’un push sur la branche `prod` du repository et suit les étapes suivantes :  
 
 1. Installation de **Node.js** et **Gulp**.  
@@ -187,7 +205,7 @@ Le déploiement se déclenche automatiquement lors d’un push sur la branche `p
 4. Connexion en SSH à l’utilisateur Linux `deploy` (droits limités) du serveur.  
 5. Dépôt du contenu de `dist/` dans `container/html/`, où écoute **nginx**.  
 
-### 4.2. Serveur
+### 4.2. Serveur  
 
 Le serveur est une **infrastructure conteneurisée sous Ubuntu, orchestrée avec Docker**.  
 Il repose sur trois groupes de conteneurs : deux nécessaires, et un utile.  
