@@ -33,8 +33,9 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.1.0
         env:
           SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
-          ARGS: "-avz --delete"
+          ARGS: "-avz --delete --no-o --no-g"
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: deploy
+          REMOTE_PORT: ${{ secrets.VPS_PORT }}
           TARGET: "/home/docker/data/portfolio/html"
