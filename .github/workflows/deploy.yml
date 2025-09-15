@@ -37,4 +37,4 @@ jobs:
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: deploy
-          TARGET: "/srv/portfolio/html"
+          TARGET: "/home/docker/data/portfolio/html"
