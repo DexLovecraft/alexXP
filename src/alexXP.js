@@ -62,6 +62,7 @@ const offScreen = document.querySelector('.off_screen');
 const blueScreen = document.querySelector('.blue_screen');
 const viewport = document.querySelector('.viewport');
 const bootupSound = new Audio('/sound/bootup_sound.mp3');
+const timeContainer = document.querySelector('.footer_time')
 bootupSound.volume = 0.25
 
 
@@ -339,3 +340,18 @@ const turnOff = () => {
 document.querySelector('.power-button').addEventListener('click', turnOn);
 document.getElementById('turn_off_button').addEventListener('click', turnOff);
 document.getElementById('start_button').addEventListener('click', () => { startMenu.classList.toggle('visible'); });
+
+// Gestion de l'Heure. 
+let time = new Date(Date.now());
+let hours = time.getHours();
+let minutes = time.getMinutes().toString().padStart(2, '0');
+timeContainer.innerHTML = `${hours}:${minutes}`;
+setInterval(() => {
+    let minutesOld = minutes;
+    time = new Date(Date.now());
+    hours = time.getHours();
+    minutes = time.getMinutes().toString().padStart(2, '0');
+    if(minutesOld != minutes) {
+        timeContainer.innerHTML = `${hours}:${minutes}`;
+    };
+}, 1000);
