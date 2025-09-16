@@ -61,16 +61,17 @@ div.visible{
 }
 .power-button {
   position: absolute;
-  bottom: 20px;
-  right: 48px;
-  width: 4.20%;
+  bottom: calc(50% - 5%);
+  right: calc(50% - 2%);
+  width: 4.2%;
   height: 7.47%;
   cursor: pointer;
   object-fit: cover;
+  aspect-ratio: 1;
 }
 .power-light {
-  bottom: 57px;
-  right: 88px;
+  bottom: 50%;
+  right: 50%;
   width: 0px;
   height: 0px;
   position: absolute;
@@ -394,6 +395,12 @@ div.app_maximized{
   -moz-box-align: center;
   align-items: center;
   max-width: 150px;
+}
+
+.footer_window p {
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
 }
 
 .footer_window.focus{
