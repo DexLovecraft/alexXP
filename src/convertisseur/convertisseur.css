@@ -28,14 +28,14 @@
     text-orientation: upright;
     margin :auto 10px;
     height: 100%;
-    font-size: 1.2rem;;
+    font-size: 0.8rem;
     text-shadow: rgb(0, 255, 255) 5px 5px 10px;
 }
 
 .input{
     display: flex;
     flex-direction: column;
-    height: 80px;
+    height: 17%;
     width: 33%;
     justify-content: space-between;
     margin: 10px 10px 0 0;
@@ -93,8 +93,12 @@
 
 .QFE_container{
     width: 100%;
+    height: 17%;
     display: flex;
     align-self: center;
+}
+.QFE_form.input{
+  height: 100%;
 }
 .QFE_container p{
     margin: auto 3px; 
@@ -105,6 +109,7 @@
     height: 100%;
     text-wrap: balance;
     text-align: center;
+    font-size: clamp(.1rem,calc(.1rem + .485vw),38px);
 }
 
 .main_calculator {
@@ -141,8 +146,14 @@
 .nav_link {
     width: 80%;
     height: 40px;
-    font-size: 1.2rem;
+    font-size: clamp(.1rem,calc(.1rem + .485vw),38px);
     margin:5px auto;
     font-weight: bold;
     cursor: pointer;
+}
+@media (max-height: 524px) { 
+  .input,.QFE_container{ 
+    height: 35%;
+  }
+  
 }
