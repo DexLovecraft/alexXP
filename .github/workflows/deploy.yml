@@ -1,41 +1,60 @@
-name: Deploy Portfolio
+name: CI/CD Portfolio
 
 on:
   push:
     branches:
-      - prod   # Déploiement uniquement depuis la branche prod
+      - main   # staging
+      - prod   # production
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. Récupération du code
-      - name: Checkout repository
+      
+      - name: Checkout
         uses: actions/checkout@v3
 
-      # 2. Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Login DockerHub
+        uses: docker/login-action@v2
         with:
-          node-version: 20
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # 3. Installer les dépendances
-      - name: Install dependencies
-        run: npm install
+      - name: Build & Push Docker image
+        run: |
+          IMAGE=alexbalmes/portfolio
 
-      # 4. Build du projet
-      - name: Build project
-        run: npm run build
+          if [ "${GITHUB_REF_NAME}" = "main" ]; then
+            TAG=staging
+          elif [ "${GITHUB_REF_NAME}" = "prod" ]; then
+            TAG=prod
+          else
+            TAG=${GITHUB_REF_NAME}
+          fi
 
-      # 5. Déploiement via rsync (propre et efficace)
+          echo "🚀 Building $IMAGE:$TAG"
+          docker build -t $IMAGE:$TAG .
+          docker push $IMAGE:$TAG
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to VPS
-        uses: easingthemes/ssh-deploy@v5.1.0
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
-          ARGS: "-avz --delete --no-o --no-g"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.VPS_HOST }}
-          REMOTE_USER: deploy
-          REMOTE_PORT: ${{ secrets.VPS_PORT }}
-          TARGET: "/home/docker/data/portfolio/html"
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            if [ "${GITHUB_REF_NAME}" = "main" ]; then
+            TAG=staging
+            elif [ "${GITHUB_REF_NAME}" = "prod" ]; then
+              TAG=prod
+            else
+              TAG=${GITHUB_REF_NAME}
+            fi
+            IMAGE=alexbalmes/portfolio:${TAG}
+            docker pull $IMAGE
+            docker compose -f /home/docker/docker-compose.yml up -d portfolio-${TAG}
