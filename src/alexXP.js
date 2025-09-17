@@ -343,13 +343,13 @@ document.getElementById('start_button').addEventListener('click', () => { startM
 
 // Gestion de l'Heure. 
 let time = new Date(Date.now());
-let hours = time.getHours();
+let hours = time.getHours().toString().padStart(2, '0');
 let minutes = time.getMinutes().toString().padStart(2, '0');
 timeContainer.innerHTML = `${hours}:${minutes}`;
 setInterval(() => {
     let minutesOld = minutes;
     time = new Date(Date.now());
-    hours = time.getHours();
+    hours = time.getHours().toString().padStart(2, '0');
     minutes = time.getMinutes().toString().padStart(2, '0');
     if(minutesOld != minutes) {
         timeContainer.innerHTML = `${hours}:${minutes}`;
