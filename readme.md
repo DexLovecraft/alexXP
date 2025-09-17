@@ -56,7 +56,7 @@ Les images ont été compressées puis converties en *WebP* (hors SVG).
 
 **Déploiement :**  
 CI/CD via **GitHub Actions**. Les fichiers sont traités avec **Gulp**, puis envoyés par SSH vers un utilisateur Linux aux droits limités, un script écoute les changement de fichier et relance le conteneur lors d'une mise a jour ne laissant pas l'utilisateur déploiement le faire .  
-Le code est développé sur `main` et déployé sur la branche `prod`.  
+Le code est développé sur `main` , Deployer automatiquement sur une version staging du site. Et lorsque le contenu en Staging est ok , on push sur prod , et l'image docker est Déployer automatiquement 
 
 **Serveur :**  
 L’architecture serveur est simple :  
