@@ -10,7 +10,6 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -24,12 +23,12 @@ jobs:
         run: |
           IMAGE=dexlovecraft/portfolio
 
-          if [ "${GITHUB_REF_NAME}" = "main" ]; then
+          if [ "${{ github.ref_name }}" = "main" ]; then
             TAG=staging
-          elif [ "${GITHUB_REF_NAME}" = "prod" ]; then
+          elif [ "${{ github.ref_name }}" = "prod" ]; then
             TAG=prod
           else
-            TAG=${GITHUB_REF_NAME}
+            TAG=${{ github.ref_name }}
           fi
 
           echo "🚀 Building $IMAGE:$TAG"
@@ -48,13 +47,15 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
-            if [ "${GITHUB_REF_NAME}" = "main" ]; then
-            TAG=staging
-            elif [ "${GITHUB_REF_NAME}" = "prod" ]; then
+            if [ "${{ github.ref_name }}" = "main" ]; then
+              TAG=staging
+            elif [ "${{ github.ref_name }}" = "prod" ]; then
               TAG=prod
             else
-              TAG=${GITHUB_REF_NAME}
+              TAG=${{ github.ref_name }}
             fi
-            IMAGE=dexlovecraft/portfolio:${TAG}
+
+            IMAGE=dexlovecraft/portfolio:$TAG
+            echo "🚀 Deploying $IMAGE"
             docker pull $IMAGE
-            docker compose -f /srv/portfolio/docker-compose.yml up -d portfolio-${TAG}
+            docker compose -f /srv/portfolio/docker-compose.yml up -d portfolio-$TAG
