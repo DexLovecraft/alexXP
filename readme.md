@@ -211,7 +211,7 @@ Pour ce projet, il y a trois conteneurs sur le serveur : deux nécessaires, et u
   - Ensemble, ils assurent le **routage** et la **sécurisation HTTPS** du site.  
 
 - **Site (nécessaire)**  
-  - *nginx:alpine* : conteneur léger qui héberge et sert le **front-end statique** (le projet AlexXP).  
+  - *dexlovecraft/portfolio:{staging/prod}* : conteneur qui sert mon site via *nginx:1.29.1-alpine*.  
   - C’est ce service qui répond aux requêtes utilisateur après passage par le proxy.  
 
 - **Monitoring (utile)**  
