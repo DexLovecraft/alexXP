@@ -22,7 +22,7 @@ jobs:
 
       - name: Build & Push Docker image
         run: |
-          IMAGE=alexbalmes/portfolio
+          IMAGE=dexlovecrafts/portfolio
 
           if [ "${GITHUB_REF_NAME}" = "main" ]; then
             TAG=staging
@@ -55,6 +55,6 @@ jobs:
             else
               TAG=${GITHUB_REF_NAME}
             fi
-            IMAGE=alexbalmes/portfolio:${TAG}
+            IMAGE=dexlovecraft/portfolio:${TAG}
             docker pull $IMAGE
             docker compose -f /home/docker/docker-compose.yml up -d portfolio-${TAG}
