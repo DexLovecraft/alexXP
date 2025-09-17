@@ -1,0 +1,41 @@
+/* --- Style rétro Windows XP --- */
+
+.internet_pages_home {
+  background-color: #ECE9D8; /* fond beige XP */
+  color: #000;
+  width: 320px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 2px groove #ccc; /* encadré façon "fenêtre" */
+  box-sizing: border-box;
+}
+
+/* Liste et liens */
+.internet_pages_home ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.internet_pages_home li {
+  margin: 6px 0;
+}
+
+.internet_pages_home a {
+  color: #0000EE; /* bleu IE6 */
+  text-decoration: underline;
+}
+
+.internet_pages_home a:visited {
+  color: #551A8B; /* violet lien visité */
+}
+
+.internet_pages_home a:hover {
+  color: red; /* effet rétro */
+}
+
+/* Optionnel : ajouter de petites icônes façon Windows XP */
+.internet_pages_home li::before {
+  content: "📄 "; /* tu peux remplacer par des .ico 16px */
+  font-size: 12px;
+}
