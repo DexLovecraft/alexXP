@@ -22,7 +22,7 @@ jobs:
 
       - name: Build & Push Docker image
         run: |
-          IMAGE=dexlovecrafts/portfolio
+          IMAGE=dexlovecraft/portfolio
 
           if [ "${GITHUB_REF_NAME}" = "main" ]; then
             TAG=staging
