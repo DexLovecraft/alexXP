@@ -57,4 +57,4 @@ jobs:
             fi
             IMAGE=dexlovecraft/portfolio:${TAG}
             docker pull $IMAGE
-            docker compose -f /home/docker/docker-compose.yml up -d portfolio-${TAG}
+            docker compose -f /srv/portfolio/docker-compose.yml up -d portfolio-${TAG}
